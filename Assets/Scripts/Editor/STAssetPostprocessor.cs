@@ -53,28 +53,31 @@ namespace StarLane.EditorTools
         // ---------------------------------------------------------------- 九宫格边距
         // Unity 的 Sliced 依赖 spriteBorder，未设置时会退化成拉伸（边框被拉变形）。
         // 注意：AssetPostprocessor 对已导入的资源不会重跑，批量设置见 STUiBorders.FixAll。
-        private static readonly System.Collections.Generic.Dictionary<string, float> BorderTable =
+        //
+        // 边距按**比例**给出（占贴图短边的百分比），不写死像素：
+        // 素材可能以 512/1024/1254 等不同分辨率生成，写死像素会导致边框拉变形。
+        private static readonly System.Collections.Generic.Dictionary<string, float> BorderRatio =
             new System.Collections.Generic.Dictionary<string, float>
             {
-                { "panel", 44f },
-                { "panel-gold", 44f },
-                { "frame-plate", 36f },
-                { "card", 36f },
-                { "button-primary", 22f },
-                { "button-gold", 18f },
-                { "chip", 36f },
-                { "bar", 26f },
+                { "panel", 0.086f },
+                { "panel-gold", 0.086f },
+                { "frame-plate", 0.070f },
+                { "card", 0.070f },
+                { "button-primary", 0.043f },
+                { "button-gold", 0.036f },
+                { "chip", 0.070f },
+                { "bar", 0.051f },
             };
 
         private static void ApplyBorder(TextureImporter importer, string path)
         {
             var name = System.IO.Path.GetFileNameWithoutExtension(path);
-            if (!BorderTable.TryGetValue(name, out var margin)) return;
+            if (!BorderRatio.TryGetValue(name, out var ratio)) return;
 
             // 边距不能超过贴图短边的一半，否则九宫格会重叠
             importer.GetSourceTextureWidthAndHeight(out int w, out int h);
-            float limit = Mathf.Min(w, h) * 0.45f;
-            float m = Mathf.Min(margin, limit);
+            float shortSide = Mathf.Min(w, h);
+            float m = Mathf.Min(shortSide * ratio, shortSide * 0.45f);
             importer.spriteBorder = new Vector4(m, m, m, m);
         }
 

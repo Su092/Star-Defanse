@@ -106,7 +106,18 @@ python .cursor/skills/apimart-image/scripts/apimart_image.py `
 - 逻辑必须保持确定性（mulberry32 + 种子），否则 `tests` 会失败。
 - 工程内不使用 SVG，图标与所有素材均为 PNG/JPEG 位图。
 
+## 视觉风格
+
+**深空赛璐璐**：日本动画赛璐璐上色 + 星际舰队仪表盘。厚黑描边、平涂双色、
+硬边 45° 高光、切角面板。完整规范见 [`Docs/ART-STYLE.md`](Docs/ART-STYLE.md)。
+
+- UI 素材由 APIMart 生成，清单在 `tools/ui-redesign.json`
+- 战场地图是**星球表面**（月面 / 冰原高地 / 晶簇盆地 / 火星红壤）
+- **地形由 AI 生成，车道由代码按真实路径绘制**（`tools/paint_lane.py`），
+  保证画面路线与逻辑路线永远一致
+
 ## 素材来源
 
-全部美术由 APIMart `gpt-image-2` 生成，清单见 `tools/apimart-assets.json`。
+全部美术由 APIMart `gpt-image-2` 生成，清单见 `tools/` 下的 `*-redesign.json` 与 `maps-terrain.json`。
 3D 模型为外部制作后导入的 FBX（`Assets/Resources/Art/Models/`，按模型分目录，含 `Anim_*.fbx`）。
+

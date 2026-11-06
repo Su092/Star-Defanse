@@ -1,0 +1,42 @@
+{
+  "_comment": "星球表面战场【地形底图】——不含任何路线。车道由 tools/paint_lane.py 按游戏真实 path 绘制，保证逻辑与画面 100% 对齐。",
+  "style": "",
+  "assets": [
+    {
+      "id": "terrain-1",
+      "out": "tools/_terrain/terrain-1.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Top-down orthographic terrain art of a PLANET SURFACE, portrait framing, the entire frame is the ground plane seen straight down. Terrain: cracked desaturated teal basalt plain with wind-eroded flat rock shelves, fine gravel, shallow dry channels, a few small impact craters, subtle weathered hexagonal survey etching, thin frost-white mineral veins, scattered angular boulders casting hard cel-shaded shadows. Completely EMPTY flat open ground in the middle third of the frame, no landmark there. Cel-shaded anime style: flat two-tone shading, hard-edged shadows, bold dark outlines on all terrain edges, NO gradients, NO glow. Very dark low-contrast ground so small glowing units read clearly on top later. ABSOLUTELY NO road, NO path, NO track, NO lane, NO trail, NO glowing line, NO energy strip, NO markings of any kind on the ground, NO buildings, NO structures, NO towers, NO gates, NO portals, NO characters, NO vehicles, NO text, NO UI, NO icons. Pure empty planet terrain only, a clean ground texture plate."
+    },
+    {
+      "id": "terrain-2",
+      "out": "tools/_terrain/terrain-2.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Top-down orthographic terrain art of a PLANET SURFACE, portrait framing, the entire frame is the ground plane seen straight down. Terrain: frozen volcanic highland, dark indigo basalt with pale blue ice crusted in the cracks, flat wind-polished slabs, scattered angular boulders casting hard cel-shaded shadows, subtle hexagonal survey etching, tiny sulfur-yellow deposits. Broad open flat areas across the whole frame, no landmark in the center. Cel-shaded anime style: flat two-tone shading, hard-edged shadows, bold dark outlines, NO gradients, NO glow. Very dark low-contrast ground so glowing units read clearly on top later. ABSOLUTELY NO road, NO path, NO track, NO lane, NO trail, NO glowing line, NO ground markings, NO buildings, NO structures, NO towers, NO gates, NO portals, NO characters, NO vehicles, NO text, NO UI, NO icons. Pure empty planet terrain only, a clean ground texture plate."
+    },
+    {
+      "id": "terrain-3",
+      "out": "tools/_terrain/terrain-3.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Top-down orthographic terrain art of a PLANET SURFACE, portrait framing, the entire frame is the ground plane seen straight down. Terrain: dark violet basalt rock and dusty regolith, fine gravel, shallow impact craters, thin veins of cold cyan mineral glowing faintly inside the rock cracks, subtle weathered hexagonal survey grid. Broad open flat ground across the whole frame, no landmark in the center. Cel-shaded anime style: flat two-tone shading, hard-edged shadows, bold dark outlines, NO gradients, NO bloom. Very dark low-contrast ground so small units read clearly on top later. ABSOLUTELY NO road, NO path, NO track, NO lane, NO trail, NO glowing line on the ground, NO ground markings, NO buildings, NO structures, NO towers, NO gates, NO portals, NO standing crystals, NO characters, NO vehicles, NO text, NO UI, NO icons. Pure empty planet terrain only, a clean ground texture plate."
+    },
+    {
+      "id": "terrain-4",
+      "out": "tools/_terrain/terrain-4.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Top-down orthographic terrain art of a PLANET SURFACE, portrait framing, the entire frame is the ground plane seen straight down. Terrain: rust-red iron oxide desert plain, wind-carved sandstone mesas seen from directly above, fine ochre dust, long straight erosion grooves, a few dark basalt outcrops, subtle hexagonal survey etching, thin white salt seams. Broad open flat ground across the whole frame, no landmark in the center. Cel-shaded anime style: flat two-tone shading, hard-edged shadows, bold dark outlines, NO gradients, NO glow. Ground kept dim and low-contrast so small glowing units read clearly on top later. ABSOLUTELY NO road, NO path, NO track, NO lane, NO trail, NO glowing line, NO ground markings, NO buildings, NO structures, NO towers, NO gates, NO portals, NO characters, NO vehicles, NO text, NO UI, NO icons. Pure empty planet terrain only, a clean ground texture plate."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "_comment": "关卡卡片缩略图（3:2 横图）。与战场地图同一套星球地貌，但取景更远、含大气与地平线，作为'地点印象'。生成后需按 960x640 裁切叠路线（见 tools/paint_thumb.py）。",
+  "style": "",
+  "assets": [
+    {
+      "id": "level-starport",
+      "out": "tools/_terrain/thumb-1.png",
+      "size": "3:2",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Wide establishing shot of a teal-grey rocky planet surface, seen from a high vantage so the ground fills the lower two thirds and a thin dark horizon with faint starfield sits along the top edge. Cracked basalt plain with wind-eroded shelves, shallow craters, frost-white mineral veins, subtle hexagonal survey etching, scattered angular boulders with hard cel-shaded shadows. Cel-shaded anime style: flat two-tone shading, hard-edged shadows, bold dark outlines, NO gradients, NO glow. Cool desaturated palette, dark and low contrast so UI text reads over it. ABSOLUTELY NO road, NO path, NO lane, NO glowing line, NO buildings, NO structures, NO towers, NO gates, NO portals, NO characters, NO vehicles, NO text, NO UI, NO icons. Pure unpopulated planet terrain only."
+    },
+    {
+      "id": "level-belt",
+      "out": "tools/_terrain/thumb-2.png",
+      "size": "3:2",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Wide establishing shot of a frozen volcanic highland on an alien planet, seen from a high vantage so the ground fills the lower two thirds and a thin dark horizon with faint starfield sits along the top edge. Dark indigo basalt with pale blue ice crusted in the cracks, flat wind-polished slabs, angular boulders with hard cel-shaded shadows, tiny sulfur-yellow deposits, subtle hexagonal survey etching. Cel-shaded anime style: flat two-tone shading, hard-edged shadows, bold dark outlines, NO gradients, NO glow. Cold dark palette, low contrast so UI text reads over it. ABSOLUTELY NO road, NO path, NO lane, NO glowing line, NO buildings, NO structures, NO towers, NO gates, NO portals, NO characters, NO vehicles, NO text, NO UI, NO icons. Pure unpopulated planet terrain only."
+    },
+    {
+      "id": "level-nexus",
+      "out": "tools/_terrain/thumb-3.png",
+      "size": "3:2",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Wide establishing shot of a crystalline alien planet basin, seen from a high vantage so the ground fills the lower two thirds and a thin dark horizon with faint starfield sits along the top edge. Dark violet basalt and dusty regolith, shallow impact craters, thin veins of cold cyan mineral glowing faintly inside the rock cracks, subtle weathered hexagonal survey grid, a few jagged crystal shards embedded flat in the ground. Cel-shaded anime style: flat two-tone shading, hard-edged shadows, bold dark outlines, NO gradients. Muted dark palette, low contrast so UI text reads over it. ABSOLUTELY NO road, NO path, NO lane, NO glowing line on the ground, NO buildings, NO structures, NO towers, NO gates, NO portals, NO standing crystals, NO characters, NO vehicles, NO text, NO UI, NO icons. Pure unpopulated planet terrain only."
+    },
+    {
+      "id": "level-crater",
+      "out": "tools/_terrain/thumb-4.png",
+      "size": "3:2",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Wide establishing shot of a rust-red iron oxide desert planet surface, seen from a high vantage so the ground fills the lower two thirds and a thin dark horizon with faint starfield sits along the top edge. Wind-carved sandstone mesas seen from above, fine ochre dust, long straight erosion grooves, dark basalt outcrops, thin white salt seams, subtle hexagonal survey etching. Cel-shaded anime style: flat two-tone shading, hard-edged shadows, bold dark outlines, NO gradients, NO glow. Warm but dim low-contrast palette so UI text reads over it. ABSOLUTELY NO road, NO path, NO lane, NO glowing line, NO buildings, NO structures, NO towers, NO gates, NO portals, NO characters, NO vehicles, NO text, NO UI, NO icons. Pure unpopulated planet terrain only."
+    }
+  ]
+}

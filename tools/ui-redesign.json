@@ -1,0 +1,125 @@
+{
+  "_comment": "深空赛璐璐 UI 重设计素材清单。用法：python .cursor/skills/apimart-image/scripts/apimart_image.py --manifest tools/ui-redesign.json",
+  "style": "Japanese cel-shaded anime game UI asset, VERY THICK near-black ink outline (heavy bold contour, at least 3 percent of the asset width, color #07040F), flat two-tone hard-edged shading with absolutely NO gradients and NO outer glow, one crisp 45-degree specular highlight band, chamfered 45-degree corners, deep space sci-fi, clean vector-like edges, high contrast, bold graphic look, no text, no letters, no numbers, no watermark, no logo, no soft bloom",
+  "assets": [
+    {
+      "id": "panel",
+      "out": "Assets/Resources/Art/UI/panel.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Empty rectangular UI panel, wide landscape aspect, used as a 9-slice dialog background. Chamfered corners (45-degree cut, no round corners). Outer ring is a thick near-black ink outline; then a thin cyan #4FF3FF accent line just inside it; the plate itself is flat two-tone split diagonally: upper half #1E1A46, lower half #12102B, with a single hard-edged straight boundary. A sharp white #D8F4FF specular band runs along the top-left inner edge at 45 degrees. A few tiny corner brackets at the four chamfered corners. Interior is completely EMPTY and flat dark, no text, no icons, no decorations inside. Front-on orthographic view, perfectly centered and symmetric, uniform border thickness on all four sides, transparent outside the silhouette."
+    },
+    {
+      "id": "panel-gold",
+      "out": "Assets/Resources/Art/UI/panel-gold.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Empty rectangular UI panel in gold theme, wide landscape aspect, used as a 9-slice dialog background for a victory screen. Chamfered corners (45-degree cut). Outer ring is thick near-black ink outline; then a thin gold #FFD166 accent line; plate is flat two-tone split: upper #2A2233, lower #171228, hard-edged boundary. A sharp warm-white specular band along the top-left inner edge. Small gold corner brackets at the chamfered corners. Interior completely EMPTY and flat, no text, no icons. Front-on orthographic, centered, symmetric, uniform border on all four sides, transparent outside the silhouette."
+    },
+    {
+      "id": "button-primary",
+      "out": "Assets/Resources/Art/UI/button-primary.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Empty horizontal button plate, wide flat landscape bar, used as a 9-slice button background. Chamfered left and right ends (45-degree cut). Thick near-black ink outline, then a cyan #4FF3FF inner edge line, flat fill in two tones: top #1E1A46, bottom #12102B with a hard diagonal boundary. One crisp white specular streak across the upper half. Interior EMPTY, no text. Front-on orthographic, centered, symmetric, uniform border all around, transparent outside the silhouette."
+    },
+    {
+      "id": "button-gold",
+      "out": "Assets/Resources/Art/UI/button-gold.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Empty horizontal button plate in gold theme, wide flat landscape bar, used as a 9-slice button background. Chamfered ends. Thick near-black ink outline, gold #FFD166 inner edge line, flat two-tone fill top #2A2233 bottom #171228 with hard diagonal boundary. One crisp warm-white specular streak on the upper half. Interior EMPTY, no text. Front-on orthographic, centered, symmetric, uniform border, transparent outside the silhouette."
+    },
+    {
+      "id": "chip",
+      "out": "Assets/Resources/Art/UI/chip.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Empty small horizontal pill-shaped tag plate, used as a 9-slice chip for keyword labels. Slightly wider than tall. Thick near-black ink outline with chamfered ends, flat two-tone fill top #232050 bottom #14112C with hard edge, thin cyan #4FF3FF underline strip along the bottom inner edge, one small white specular dot on the upper left. Interior EMPTY. Front-on orthographic, centered, symmetric, uniform border, transparent outside the silhouette."
+    },
+    {
+      "id": "bar",
+      "out": "Assets/Resources/Art/UI/bar.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Empty horizontal gauge track, long thin capsule bar used as a health bar background. Rounded capsule ends. Thick near-black ink outline, then a cyan #4FF3FF rim, interior is a deep hollow recess #0C0A1E with a subtle inner shadow line at the top. Completely hollow and empty inside, NO fill, NO colored segment. Front-on orthographic, perfectly horizontal and centered, uniform border thickness, transparent outside the silhouette."
+    },
+    {
+      "id": "card",
+      "out": "Assets/Resources/Art/UI/card.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Empty vertical portrait card frame, tall aspect used as a 9-slice character card background. Chamfered corners. Thick near-black ink outline, thin cyan #4FF3FF inner accent line, flat two-tone plate top #1E1A46 bottom #12102B with hard diagonal boundary, sharp white specular band along the top-left edge, small angular corner brackets at the top and bottom. Interior EMPTY and flat, no portrait, no figure, no face, no text. Front-on orthographic, centered, symmetric, uniform border, transparent outside the silhouette."
+    },
+    {
+      "id": "frame-plate",
+      "out": "Assets/Resources/Art/UI/frame-plate.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Empty wide horizontal info plate, short and wide bar shape used as a 9-slice HUD label background. Chamfered corners with a notched cut on the right end. Thick near-black ink outline, thin cyan #4FF3FF inner line, flat two-tone fill top #1E1A46 bottom #12102B with hard boundary, one sharp white specular streak along the top. Interior EMPTY, no text, no icons. Front-on orthographic, centered, symmetric, uniform border, transparent outside the silhouette."
+    },
+    {
+      "id": "frame-round",
+      "out": "Assets/Resources/Art/UI/frame-round.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Empty circular button bezel ring, perfectly round, used as a HUD round button frame. Thick near-black ink outline on both outer and inner rim, between them a flat two-tone metal ring: upper-left #1E1A46, lower-right #12102B split by a hard straight diagonal, with one crisp white specular arc on the upper-left of the ring. Inner disc is completely EMPTY and flat dark #0C0A1E, no icon, no symbol, no arrow. Front-on orthographic, perfectly centered and radially symmetric, transparent outside the circle, hollow center is NOT transparent."
+    },
+    {
+      "id": "icon-star",
+      "out": "Assets/Resources/Art/UI/icon-star.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Single five-pointed star icon, centered, filling most of the frame, flat vector-like shape. Thick near-black ink outline, flat gold #FFD166 fill with a two-tone split: left half bright gold, right half darker amber #C8901F separated by a hard straight edge, one crisp white specular wedge on the upper-left point. No text, no background, transparent outside the star."
+    },
+    {
+      "id": "icon-coin",
+      "out": "Assets/Resources/Art/UI/icon-coin.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Single gold coin icon, circular, facing straight on, centered. Thick near-black ink outline, flat gold #FFD166 face with a darker amber #C8901F lower-right crescent split by a hard edge, an inner engraved ring line, and one crisp white specular highlight arc on the upper-left. Simple and readable at very small sizes. No text, no numbers, no symbols, transparent outside the coin."
+    },
+    {
+      "id": "icon-crystal",
+      "out": "Assets/Resources/Art/UI/icon-crystal.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Single energy crystal icon, a vertical faceted hexagonal gem, centered, pointing up. Thick near-black ink outline, flat cyan #4FF3FF fill with hard two-tone facets (left bright cyan, right deeper teal #1B7C9A), one crisp white specular streak down the left facet. No text, no background, transparent outside the gem."
+    },
+    {
+      "id": "icon-pause",
+      "out": "Assets/Resources/Art/UI/icon-pause.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Single pause icon: two thick vertical bars side by side, centered, flat vector-like. Thick near-black ink outline, flat white #D8F4FF fill with a subtle hard shadow edge on the right side of each bar. No text, no background, transparent outside the bars."
+    },
+    {
+      "id": "icon-speed",
+      "out": "Assets/Resources/Art/UI/icon-speed.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Single fast-forward icon: two thick right-pointing triangles side by side, centered, flat vector-like. Thick near-black ink outline, flat white #D8F4FF fill with hard two-tone split (upper bright, lower slightly darker). No text, no background, transparent outside the shapes."
+    },
+    {
+      "id": "icon-help",
+      "out": "Assets/Resources/Art/UI/icon-help.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Single question mark icon, bold and centered, flat vector-like, without any surrounding circle. Thick near-black ink outline, flat white #D8F4FF fill with a hard shadow edge on the right. No text other than the question mark shape, no background, transparent outside the glyph."
+    },
+    {
+      "id": "icon-arrow",
+      "out": "Assets/Resources/Art/UI/icon-arrow.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Single downward-pointing chevron arrow icon, centered, flat vector-like, wide and short. Thick near-black ink outline, flat gold #FFD166 fill with a hard two-tone split (upper bright gold, lower amber). No text, no background, transparent outside the arrow."
+    },
+    {
+      "id": "icon-book",
+      "out": "Assets/Resources/Art/UI/icon-book.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Single open book icon viewed from the front, centered, flat vector-like, two facing pages. Thick near-black ink outline, flat white #D8F4FF pages with hard two-tone shading on the underside, thin cyan #4FF3FF accent line along the spine. No text, no letters on the pages, no background, transparent outside the book."
+    }
+  ]
+}

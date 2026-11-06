@@ -13,17 +13,19 @@ namespace StarLane.EditorTools
 {
     public static class STUiBorders
     {
-        // 边距按素材设计尺寸给出（单位：像素，写入 spriteBorder）
-        private static readonly Dictionary<string, float> Table = new Dictionary<string, float>
+        // 边距按**比例**给出（占贴图短边的百分比），再乘实际尺寸写入 spriteBorder。
+        // 不能写死像素：素材可能以 512/1024/1254 等不同分辨率生成，
+        // 写死像素会让边框在拉伸时变形（九宫格切错位置）。
+        private static readonly Dictionary<string, float> Ratio = new Dictionary<string, float>
         {
-            { "panel", 44f },
-            { "panel-gold", 44f },
-            { "frame-plate", 36f },
-            { "card", 36f },
-            { "button-primary", 22f },
-            { "button-gold", 18f },
-            { "chip", 36f },
-            { "bar", 26f },
+            { "panel", 0.086f },
+            { "panel-gold", 0.086f },
+            { "frame-plate", 0.070f },
+            { "card", 0.070f },
+            { "button-primary", 0.043f },
+            { "button-gold", 0.036f },
+            { "chip", 0.070f },
+            { "bar", 0.051f },
         };
 
         public static void FixAll()
@@ -31,7 +33,7 @@ namespace StarLane.EditorTools
             const string dir = "Assets/Resources/Art/UI";
             int fixedCount = 0;
 
-            foreach (var kv in Table)
+            foreach (var kv in Ratio)
             {
                 var path = $"{dir}/{kv.Key}.png";
                 var importer = AssetImporter.GetAtPath(path) as TextureImporter;
@@ -50,8 +52,8 @@ namespace StarLane.EditorTools
                 }
 
                 importer.GetSourceTextureWidthAndHeight(out int w, out int h);
-                float limit = Mathf.Min(w, h) * 0.45f;
-                float m = Mathf.Min(kv.Value, limit);
+                float shortSide = Mathf.Min(w, h);
+                float m = Mathf.Min(shortSide * kv.Value, shortSide * 0.45f);
 
                 importer.spriteBorder = new Vector4(m, m, m, m);
                 importer.spritePixelsPerUnit = 100f;

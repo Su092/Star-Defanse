@@ -1,0 +1,42 @@
+{
+  "_comment": "星球表面战场地图（深空赛璐璐）。生成后必须跑 tools/map_plan.py 重新提取路线并回写 sldata.json，否则逻辑与画面对不上。",
+  "style": "",
+  "assets": [
+    {
+      "id": "level-map-1",
+      "out": "Assets/Resources/Art/Backgrounds/level-map-1-raw.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Top-down orthographic terrain art of a PLANET SURFACE, portrait framing, the entire frame is the ground plane seen straight down. Terrain: cracked desaturated teal basalt plain with wind-eroded flat rock shelves, fine gravel, shallow dry channels, a few small impact craters, subtle weathered hexagonal survey etching, thin frost-like white mineral veins. ONE single continuous glowing cyan energy route, about 6 percent of the frame width: it enters at the TOP edge at the horizontal center, runs straight DOWN, sweeps out into a WIDE FULL CIRCLE loop that occupies the middle of the frame, comes back to the center line, then runs straight down and terminates at the BOTTOM edge at the exact horizontal center in a wide empty circular landing basin with a low flat rim. The route is a flat compacted lane with bright cyan emissive edge strips and short white dash markings, casting a soft cyan glow on the rock. Cel-shaded anime style: flat two-tone shading, hard-edged shadows, bold dark outlines on all terrain edges, NO gradients. Very dark low-contrast ground so small glowing units read clearly on top. NO buildings, NO structures, NO towers, NO turrets, NO gates, NO portals, NO arches, NO standing crystals, NO characters, NO vehicles, NO text, NO UI, NO icons, NO arrows, NO labels. Pure planet terrain and one glowing route only."
+    },
+    {
+      "id": "level-map-2",
+      "out": "Assets/Resources/Art/Backgrounds/level-map-2-raw.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Top-down orthographic terrain art of a PLANET SURFACE, portrait framing, the entire frame is the ground plane seen straight down. Terrain: frozen volcanic highland, dark indigo basalt with pale blue ice crusted in the cracks, flat wind-polished slabs, scattered angular boulders casting hard cel-shaded shadows, subtle hexagonal survey etching, tiny sulfur-yellow deposits. ONE single continuous glowing cyan energy route, about 6 percent of the frame width: it enters at the TOP edge left of center, runs straight DOWN a short distance, makes a sharp 90-degree turn RIGHT, crosses to the right side, makes a wide 180-degree U-turn back to the LEFT, crosses back, makes a second wide 180-degree U-turn to the RIGHT, then turns 90 degrees straight DOWN and terminates at the BOTTOM edge at the horizontal center in a wide empty circular landing basin with a low flat rim. The route is a flat compacted lane with bright cyan emissive edge strips and short white dash markings. Cel-shaded anime style: flat two-tone shading, hard-edged shadows, bold dark outlines, NO gradients. Very dark low-contrast ground so small glowing units read clearly. NO buildings, NO structures, NO towers, NO gates, NO portals, NO characters, NO vehicles, NO text, NO UI, NO icons. Pure planet terrain and one glowing route only."
+    },
+    {
+      "id": "level-map-3",
+      "out": "Assets/Resources/Art/Backgrounds/level-map-3-raw.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Top-down orthographic terrain art of a PLANET SURFACE, portrait framing, the entire frame is the ground plane seen straight down. Terrain: dark violet basalt rock and dusty regolith, fine gravel, shallow impact craters, thin veins of cold cyan crystal glowing faintly in the cracks, subtle weathered hexagonal survey grid. ONE single continuous glowing cyan energy route, about 6 percent of the frame width, that SPIRALS INWARD: enters at the TOP edge left of center, runs down the left side, curves right across the top third, loops down the right side into a wide outer arc, then spirals inward in two progressively smaller turns, and finally terminates at the exact horizontal center in a wide empty circular landing basin ringed by a low flat rim. The route is a flat compacted lane with bright cyan emissive edge strips and short white dash markings. Cel-shaded anime style: flat two-tone shading, hard-edged shadows, bold dark outlines, NO gradients. Very dark low-contrast ground so small units read clearly. NO buildings, NO structures, NO towers, NO gates, NO portals, NO arches, NO standing crystals, NO characters, NO vehicles, NO text, NO UI, NO icons. Pure planet terrain and one glowing route only."
+    },
+    {
+      "id": "level-map-4",
+      "out": "Assets/Resources/Art/Backgrounds/level-map-4-raw.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Top-down orthographic terrain art of a PLANET SURFACE, portrait framing, the entire frame is the ground plane seen straight down. Terrain: rust-red iron oxide desert plain, wind-carved sandstone mesas seen from directly above, fine ochre dust, long straight erosion grooves, a few dark basalt outcrops, subtle hexagonal survey etching, thin white salt seams. ONE single continuous glowing cyan energy route, about 6 percent of the frame width: it enters at the BOTTOM LEFT corner, runs straight UP along the left side, turns RIGHT and crosses the frame horizontally in the lower third, turns UP at the right side, crosses back LEFT in a wide arc across the middle, turns DOWN and forms a hairpin, then runs to the BOTTOM edge and terminates slightly right of center in a wide empty circular landing basin with a low flat rim. The route is a flat compacted lane with bright cyan emissive edge strips and short white dash markings, glowing strongly against the warm rock. Cel-shaded anime style: flat two-tone shading, hard-edged shadows, bold dark outlines, NO gradients. Ground kept dim and low-contrast so small glowing units read clearly. NO buildings, NO structures, NO towers, NO gates, NO portals, NO characters, NO vehicles, NO text, NO UI, NO icons. Pure planet terrain and one glowing route only."
+    }
+  ]
+}
