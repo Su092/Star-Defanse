@@ -40,3 +40,8 @@ desktop.ini
 
 # Cursor 画布元数据（工具自动生成）
 /canvas/
+
+# 生图中间产物（可由 tools/*-redesign.json 重新生成）
+/tools/_terrain/
+/tools/apimart-assets.json
+
