@@ -1,0 +1,62 @@
+{
+  "_comment": "防御塔设计图（每张含 4 个升级阶段的形态）。由 tools/apimart-towers.json 驱动。",
+  "style": "Japanese cel-shaded anime sci-fi concept art, thick clean ink outline, flat two-tone hard-edged shading with absolutely NO gradients and NO soft glow, crisp geometric mecha silhouettes, white hard-surface armor plating with charcoal mechanical joints and gold trim, pure flat white background, isolated objects only, no text, no letters, no numbers, no labels, no watermark, no UI elements, no human figures, no characters",
+  "assets": [
+    {
+      "id": "tower-ran",
+      "out": "TowerDesigns/tower-ran-ion.png",
+      "size": "2:1",
+      "resolution": "2k",
+      "prompt": "Defense tower design sheet derived from a white-and-cyan powered armor pilot who dual-wields double-barrel energy pistols and has a glowing hexagonal chest core. One wide image showing the SAME tower at four upgrade stages, arranged in a single horizontal row left to right, evenly spaced, all standing on the same invisible ground line, identical 3/4 elevated camera angle for all four, stage 1 far left smallest and simplest, stage 4 far right tallest and most elaborate, no dividers and no frames between them. Stage 1: a compact white plated turret on a hexagonal base with one short twin-muzzle ion barrel. Stage 2: two stacked twin-barrel ion emitters with a glowing cyan hexagonal panel on the housing and gold trim. Stage 3: a wider hex-framed battery with three exposed ion barrels, external power conduit and magenta status strips. Stage 4: an angular fortress emplacement with paired long ion lance barrels, two small floating cyan hexagon rings orbiting above it, bright cyan energy charging in the muzzles. Palette: clean white armor, charcoal joints, gold trim, cyan energy lines, small magenta accents. Rapid-fire twin-stream ion weapon."
+    },
+    {
+      "id": "tower-zero",
+      "out": "TowerDesigns/tower-zero-crimson.png",
+      "size": "2:1",
+      "resolution": "2k",
+      "prompt": "Defense tower design sheet derived from a red-eyed dual-pistol assault pilot in white and charcoal armor with crimson energy accents and a visor-like sensor head. One wide image showing the SAME tower at four upgrade stages, arranged in a single horizontal row left to right, evenly spaced, all standing on the same invisible ground line, identical 3/4 elevated camera angle for all four, stage 1 far left smallest and simplest, stage 4 far right tallest and most elaborate, no dividers and no frames between them. Stage 1: a slim white turret on a tripod with one short pulse barrel and a single red sensor eye. Stage 2: twin pulse barrels mounted on a rotating yoke, two glowing red sensor lenses, gold fastening straps. Stage 3: a dual-arm battery with four alternating pulse barrels and exposed crimson heat vents. Stage 4: a tall twin-pylon emplacement with two long barrels firing in alternation, a crown of red targeting fins, a floating red reticle ring above it, magenta warning stripes. Palette: white armor, charcoal joints, gold trim, crimson and hot-pink energy. Alternating high-rate critical-trauma shots."
+    },
+    {
+      "id": "tower-vega",
+      "out": "TowerDesigns/tower-vega-falcon.png",
+      "size": "2:1",
+      "resolution": "2k",
+      "prompt": "Defense tower design sheet derived from a deep-space falcon sniper in a sleek white and pale-blue flight suit with swept wing-shaped shoulder fins and a long rail rifle. One wide image showing the SAME tower at four upgrade stages, arranged in a single horizontal row left to right, evenly spaced, all standing on the same invisible ground line, identical 3/4 elevated camera angle for all four, stage 1 far left smallest and simplest, stage 4 far right tallest and most elaborate, no dividers and no frames between them. Stage 1: a low white tripod with a single thin long rail barrel and a blade-like sighting fin. Stage 2: the rail barrel lengthened with a pair of swept wing stabilizer fins, pale blue capacitor cell glowing. Stage 3: a tall bipod emplacement with an extended rail lance, side-mounted rangefinder pods and gold trim. Stage 4: a slender spire platform with a very long segmented rail cannon, four swept wing panels deployed outward like a bird of prey, a floating pale-blue targeting ring, thin cyan energy arcing along the rail. Palette: white armor, charcoal joints, gold trim, pale ice-blue energy. Single charged long-range rail shot."
+    },
+    {
+      "id": "tower-sera",
+      "out": "TowerDesigns/tower-sera-halo.png",
+      "size": "2:1",
+      "resolution": "2k",
+      "prompt": "Defense tower design sheet derived from a silent luminous sniper in white and violet armor with a ring-shaped halo apparatus behind the shoulders and a long piercing light lance. One wide image showing the SAME tower at four upgrade stages, arranged in a single horizontal row left to right, evenly spaced, all standing on the same invisible ground line, identical 3/4 elevated camera angle for all four, stage 1 far left smallest and simplest, stage 4 far right tallest and most elaborate, no dividers and no frames between them. Stage 1: a small white pillar turret with a single thin light-emitting needle barrel. Stage 2: a segmented needle barrel with a partial violet halo arc mounted behind it. Stage 3: an upright shrine-like frame with a full violet halo ring and three focusing lens fins, gold trim. Stage 4: a tall elegant spire with a complete double halo ring, a long crystal-tipped piercing lance, and beams of violet light converging in the muzzle. Palette: white armor, charcoal joints, gold trim, violet and magenta light. Piercing armour-penetrating beam that passes through several targets."
+    },
+    {
+      "id": "tower-grom",
+      "out": "TowerDesigns/tower-grom-hammer.png",
+      "size": "2:1",
+      "resolution": "2k",
+      "prompt": "Defense tower design sheet derived from a heavy cybernetic siege engineer in white and navy armour with a shoulder-mounted six-barrel rotary cannon glowing orange and thick industrial cables. One wide image showing the SAME tower at four upgrade stages, arranged in a single horizontal row left to right, evenly spaced, all standing on the same invisible ground line, identical 3/4 elevated camera angle for all four, stage 1 far left smallest and simplest, stage 4 far right tallest and most elaborate, no dividers and no frames between them. Stage 1: a squat heavy mortar block on a wide navy base with one stubby thick barrel. Stage 2: a reinforced housing with a shorter rotary barrel cluster and orange heat glow inside, gold buckles on dark straps. Stage 3: a massive six-barrel rotary cannon on a heavy pivot, exposed orange glowing feed pipes and heat vents. Stage 4: an industrial siege platform with a huge rotary cannon, a counterweight arm, thick cables and pipes, heavy armour skirts, orange molten heat glowing in the barrels and vents. Palette: white armour, navy and charcoal, gold buckles, orange heat. Heavy high-calibre kinetic barrage and lobbed shells."
+    },
+    {
+      "id": "tower-chaos",
+      "out": "TowerDesigns/tower-chaos-starburst.png",
+      "size": "2:1",
+      "resolution": "2k",
+      "prompt": "Defense tower design sheet derived from a starburst bombardment engineer in white and charcoal armour with a faceted star-shaped explosive core and hot-pink energy accents. One wide image showing the SAME tower at four upgrade stages, arranged in a single horizontal row left to right, evenly spaced, all standing on the same invisible ground line, identical 3/4 elevated camera angle for all four, stage 1 far left smallest and simplest, stage 4 far right tallest and most elaborate, no dividers and no frames between them. Stage 1: a compact wedge-shaped launcher on a low base with a single short wide-bore tube. Stage 2: an angled twin-tube grenade launcher with a small faceted pink star core in the housing. Stage 3: a wide three-tube cluster launcher with a large faceted star-shaped explosive magazine, gold trim ribs and pink warning markings. Stage 4: a sprawling artillery emplacement with four angled wide-bore tubes firing in a fan, a big faceted star core, floating shards orbiting it, exposed ammunition drums and magenta sparking conduits. Palette: white armour, charcoal joints, gold trim, hot-pink and magenta energy. Lobbed cluster explosive shells with area detonation."
+    },
+    {
+      "id": "tower-ella",
+      "out": "TowerDesigns/tower-ella-prism.png",
+      "size": "2:1",
+      "resolution": "2k",
+      "prompt": "Defense tower design sheet derived from a prism-barrier interceptor in white and mint-green armour carrying a crystalline shield emitter and faceted glass panels. One wide image showing the SAME tower at four upgrade stages, arranged in a single horizontal row left to right, evenly spaced, all standing on the same invisible ground line, identical 3/4 elevated camera angle for all four, stage 1 far left smallest and simplest, stage 4 far right tallest and most elaborate, no dividers and no frames between them. Stage 1: a small white emitter pillar on a round base projecting one flat mint-green prism panel. Stage 2: the pillar with two angled prism fins and a floating crystal lens. Stage 3: a triangular frame tower holding three large faceted prism panels that form a partial barrier wall, gold trim on the joints. Stage 4: a tall three-legged frame with six interlocking prism barrier panels forming a glowing shield wall, a big central crystal, small floating glass shards orbiting. Palette: white armour, charcoal joints, gold trim, mint-green and cyan crystalline energy. Projects barrier walls that block and absorb enemies on the lane."
+    },
+    {
+      "id": "tower-nova",
+      "out": "TowerDesigns/tower-nova-swarm.png",
+      "size": "2:1",
+      "resolution": "2k",
+      "prompt": "Defense tower design sheet derived from a swarm-mother interceptor in white and gold armour surrounded by hovering drones and hexagon cellular pods. One wide image showing the SAME tower at four upgrade stages, arranged in a single horizontal row left to right, evenly spaced, all standing on the same invisible ground line, identical 3/4 elevated camera angle for all four, stage 1 far left smallest and simplest, stage 4 far right tallest and most elaborate, no dividers and no frames between them. Stage 1: a small white hive-like pod tower with one hover drone docked in a cradle. Stage 2: the pod with three hexagon cells, two small drones floating beside it, gold trim rings. Stage 3: a domed hive carrier with six open hexagon cells and four small drones hovering around it. Stage 4: a tall hive spire with many glowing hexagon cells, a ring of eight small drones orbiting it, a larger central drone docked at the top, golden energy threads linking the swarm. Palette: white armour, charcoal joints, gold trim, warm gold and amber energy. Launches a swarm of small autonomous intercept drones onto the lane."
+    }
+  ]
+}
