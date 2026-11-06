@@ -1,0 +1,1682 @@
+{
+  "affixes": [
+    {
+      "desc": "全体防御塔攻速 +18%",
+      "family": "assault",
+      "icon": "speed",
+      "id": "a_overclock",
+      "mods": [
+        {
+          "k": "atkSpeedMul",
+          "v": 0.18
+        }
+      ],
+      "name": "超频协议"
+    },
+    {
+      "desc": "暴击率 +18%，暴击伤害 180%",
+      "family": "assault",
+      "icon": "crit",
+      "id": "a_crit",
+      "mods": [
+        {
+          "k": "critChance",
+          "v": 0.18
+        },
+        {
+          "k": "critMul",
+          "v": 0.8
+        }
+      ],
+      "name": "破绽锁定"
+    },
+    {
+      "desc": "每次击杀额外 +2 金币",
+      "family": "assault",
+      "icon": "coin",
+      "id": "a_killgold",
+      "mods": [
+        {
+          "k": "goldPerKill",
+          "v": 2.0
+        }
+      ],
+      "name": "战场掠夺"
+    },
+    {
+      "desc": "无视 50% 护甲，狙击伤害 +15%",
+      "family": "sniper",
+      "icon": "pierce",
+      "id": "s_pierce",
+      "mods": [
+        {
+          "k": "pierce",
+          "v": 0.5
+        },
+        {
+          "k": "sniperDmgMul",
+          "v": 0.15
+        }
+      ],
+      "name": "穿甲弹"
+    },
+    {
+      "desc": "对生命低于 20% 的敌人造成双倍伤害",
+      "family": "sniper",
+      "icon": "skull",
+      "id": "s_exec",
+      "mods": [
+        {
+          "k": "execute",
+          "v": 0.2
+        }
+      ],
+      "name": "精准处决"
+    },
+    {
+      "desc": "全体射程 +15%",
+      "family": "sniper",
+      "icon": "range",
+      "id": "s_far",
+      "mods": [
+        {
+          "k": "rangeMul",
+          "v": 0.15
+        }
+      ],
+      "name": "超视距校准"
+    },
+    {
+      "desc": "重炮爆炸半径 +30%",
+      "family": "siege",
+      "icon": "burst",
+      "id": "g_aoe",
+      "mods": [
+        {
+          "k": "splashMul",
+          "v": 0.3
+        }
+      ],
+      "name": "广域爆裂"
+    },
+    {
+      "desc": "命中有 30% 概率造成 8/秒 灼烧，持续 3 秒",
+      "family": "siege",
+      "icon": "flame",
+      "id": "g_burn",
+      "mods": [
+        {
+          "k": "burnChance",
+          "v": 0.3
+        },
+        {
+          "k": "burnDps",
+          "v": 8.0
+        },
+        {
+          "k": "burnDur",
+          "v": 3.0
+        }
+      ],
+      "name": "灼烧装药"
+    },
+    {
+      "desc": "全体伤害 +20%",
+      "family": "siege",
+      "icon": "power",
+      "id": "g_dmg",
+      "mods": [
+        {
+          "k": "dmgMul",
+          "v": 0.2
+        }
+      ],
+      "name": "高爆核心"
+    },
+    {
+      "desc": "拦截单位生命 +50%，伤害 +30%",
+      "family": "intercept",
+      "icon": "shield",
+      "id": "i_guard",
+      "mods": [
+        {
+          "k": "guardHpMul",
+          "v": 0.5
+        },
+        {
+          "k": "guardDmgMul",
+          "v": 0.3
+        }
+      ],
+      "name": "强化拦截"
+    },
+    {
+      "desc": "拦截单位重建时间 -40%",
+      "family": "intercept",
+      "icon": "refresh",
+      "id": "i_fast",
+      "mods": [
+        {
+          "k": "guardRespawnMul",
+          "v": -0.4
+        }
+      ],
+      "name": "快速重建"
+    },
+    {
+      "desc": "核心每次受伤 -1（最低 1）",
+      "family": "intercept",
+      "icon": "core",
+      "id": "i_leak",
+      "mods": [
+        {
+          "k": "leakReduce",
+          "v": 1.0
+        }
+      ],
+      "name": "缓冲护盾"
+    },
+    {
+      "desc": "每波结束额外 +25 金币",
+      "family": "universal",
+      "icon": "supply",
+      "id": "u_supply",
+      "mods": [
+        {
+          "k": "waveBonus",
+          "v": 25.0
+        }
+      ],
+      "name": "补给协议"
+    },
+    {
+      "desc": "召唤价格增长 -25%",
+      "family": "universal",
+      "icon": "ticket",
+      "id": "u_cheap",
+      "mods": [
+        {
+          "k": "summonGrowthMul",
+          "v": -0.25
+        }
+      ],
+      "name": "精简流程"
+    },
+    {
+      "desc": "合成时返还 20 金币",
+      "family": "universal",
+      "icon": "recycle",
+      "id": "u_merge",
+      "mods": [
+        {
+          "k": "mergeRefund",
+          "v": 20.0
+        }
+      ],
+      "name": "回收协议"
+    },
+    {
+      "desc": "命中有 25% 概率减速 45%，持续 2 秒",
+      "family": "universal",
+      "icon": "frost",
+      "id": "u_frost",
+      "mods": [
+        {
+          "k": "frostChance",
+          "v": 0.25
+        },
+        {
+          "k": "frostSlow",
+          "v": 0.45
+        },
+        {
+          "k": "frostDur",
+          "v": 2.0
+        }
+      ],
+      "name": "冻结弹头"
+    },
+    {
+      "desc": "英雄伤害 +50%，射程 +20%",
+      "family": "universal",
+      "icon": "hero",
+      "id": "u_hero",
+      "mods": [
+        {
+          "k": "heroDmgMul",
+          "v": 0.5
+        },
+        {
+          "k": "heroRangeMul",
+          "v": 0.2
+        }
+      ],
+      "name": "英雄特训"
+    },
+    {
+      "desc": "命中使敌人受到伤害 +6%，最多 3 层",
+      "family": "universal",
+      "icon": "armor",
+      "id": "u_shred",
+      "mods": [
+        {
+          "k": "shredPerHit",
+          "v": 0.06
+        },
+        {
+          "k": "shredMax",
+          "v": 3.0
+        }
+      ],
+      "name": "破甲弹"
+    }
+  ],
+  "classes": [
+    {
+      "color": "4ff3ff",
+      "color2": "1b7c9a",
+      "desc": "脉冲双管，射速最快，稳定单体输出。",
+      "dmg": 9.0,
+      "en": "ASSAULT",
+      "id": "assault",
+      "name": "突击",
+      "range": 190.0,
+      "rate": 2.6,
+      "role": "快速单体",
+      "turn": 6.5
+    },
+    {
+      "color": "a78bff",
+      "color2": "4b3a9e",
+      "desc": "轨道枪瞬击，射程最远，单发重击。",
+      "dmg": 46.0,
+      "en": "SNIPER",
+      "id": "sniper",
+      "name": "狙击",
+      "range": 380.0,
+      "rate": 0.62,
+      "role": "高伤单体",
+      "turn": 2.8
+    },
+    {
+      "color": "ffae3a",
+      "color2": "a24c13",
+      "desc": "榴弹落点爆炸，清理成串的敌人。",
+      "dmg": 26.0,
+      "en": "SIEGE",
+      "id": "siege",
+      "name": "重炮",
+      "range": 265.0,
+      "rate": 0.55,
+      "role": "范围爆破",
+      "splash": 78.0,
+      "turn": 2.2
+    },
+    {
+      "blockCap": 2,
+      "color": "5be39a",
+      "color2": "1c7a50",
+      "desc": "在附近轨道上生成拦截单位，挡住并消耗敌人。",
+      "en": "INTERCEPT",
+      "guardDps": 10.0,
+      "guardHp": 160.0,
+      "id": "intercept",
+      "name": "拦截",
+      "respawn": 7.0,
+      "role": "路径阻挡",
+      "turn": 5.0
+    }
+  ],
+  "enemies": [
+    {
+      "armor": 0.0,
+      "atk": 7.0,
+      "color": "7ce1c4",
+      "hp": 78.0,
+      "id": "grunt",
+      "leak": 1,
+      "name": "残骸机兵",
+      "radius": 32.0,
+      "reward": 4,
+      "speed": 52.0
+    },
+    {
+      "armor": 0.0,
+      "atk": 5.0,
+      "color": "ff7ac8",
+      "hp": 54.0,
+      "id": "runner",
+      "leak": 1,
+      "name": "疾影无人机",
+      "radius": 27.0,
+      "reward": 4,
+      "speed": 86.0
+    },
+    {
+      "armor": 3.0,
+      "atk": 13.0,
+      "color": "9fb4ff",
+      "hp": 350.0,
+      "id": "tank",
+      "leak": 2,
+      "name": "重甲巡洋",
+      "radius": 37.0,
+      "reward": 8,
+      "speed": 37.0
+    },
+    {
+      "armor": 5.0,
+      "atk": 24.0,
+      "color": "ff5b6e",
+      "elite": true,
+      "hp": 1550.0,
+      "id": "elite",
+      "leak": 4,
+      "name": "精英 · 破阵者",
+      "radius": 52.0,
+      "reward": 30,
+      "speed": 34.0
+    },
+    {
+      "armor": 9.0,
+      "atk": 45.0,
+      "boss": true,
+      "color": "ff3dae",
+      "hp": 8400.0,
+      "id": "boss",
+      "leak": 9,
+      "name": "旗舰 · 湮灭级",
+      "radius": 68.0,
+      "reward": 90,
+      "slowResist": 0.5,
+      "speed": 27.0
+    }
+  ],
+  "fillerAffix": {
+    "desc": "全体伤害 +6%（可重复获得）",
+    "family": "universal",
+    "icon": "power",
+    "id": "u_reinforce",
+    "mods": [
+      {
+        "k": "reinforce",
+        "v": 0.06
+      }
+    ],
+    "name": "协同强化",
+    "repeatable": true
+  },
+  "levels": [
+    {
+      "art": "level-starport",
+      "camera": {
+        "x": 0.0,
+        "y": 108.0,
+        "z": 55.0
+      },
+      "en": "STARPORT ARCADE",
+      "hint": "点击「召唤」投放防御塔，拖动塔可换台；两座同级塔拖到一起即可合成升阶。",
+      "id": "starport",
+      "index": 1,
+      "map": "level-map-1",
+      "mapRect": {
+        "h": 1920.0,
+        "w": 1080.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "mul": [
+        {
+          "k": "hp",
+          "v": 1.1
+        },
+        {
+          "k": "speed",
+          "v": 1.0
+        },
+        {
+          "k": "reward",
+          "v": 1.0
+        }
+      ],
+      "name": "星港回廊",
+      "path": [
+        {
+          "x": 540.0,
+          "y": 210.0
+        },
+        {
+          "x": 540.0,
+          "y": 584.0
+        },
+        {
+          "x": 695.0,
+          "y": 585.0
+        },
+        {
+          "x": 802.0,
+          "y": 639.0
+        },
+        {
+          "x": 887.0,
+          "y": 724.0
+        },
+        {
+          "x": 941.0,
+          "y": 831.0
+        },
+        {
+          "x": 960.0,
+          "y": 950.0
+        },
+        {
+          "x": 941.0,
+          "y": 1069.0
+        },
+        {
+          "x": 887.0,
+          "y": 1176.0
+        },
+        {
+          "x": 802.0,
+          "y": 1261.0
+        },
+        {
+          "x": 695.0,
+          "y": 1315.0
+        },
+        {
+          "x": 576.0,
+          "y": 1334.0
+        },
+        {
+          "x": 457.0,
+          "y": 1315.0
+        },
+        {
+          "x": 350.0,
+          "y": 1261.0
+        },
+        {
+          "x": 265.0,
+          "y": 1176.0
+        },
+        {
+          "x": 211.0,
+          "y": 1069.0
+        },
+        {
+          "x": 192.0,
+          "y": 950.0
+        },
+        {
+          "x": 211.0,
+          "y": 831.0
+        },
+        {
+          "x": 265.0,
+          "y": 724.0
+        },
+        {
+          "x": 350.0,
+          "y": 639.0
+        },
+        {
+          "x": 457.0,
+          "y": 585.0
+        },
+        {
+          "x": 576.0,
+          "y": 566.0
+        },
+        {
+          "x": 695.0,
+          "y": 585.0
+        },
+        {
+          "x": 802.0,
+          "y": 639.0
+        },
+        {
+          "x": 887.0,
+          "y": 724.0
+        },
+        {
+          "x": 941.0,
+          "y": 831.0
+        },
+        {
+          "x": 960.0,
+          "y": 950.0
+        },
+        {
+          "x": 941.0,
+          "y": 1069.0
+        },
+        {
+          "x": 887.0,
+          "y": 1176.0
+        },
+        {
+          "x": 802.0,
+          "y": 1261.0
+        },
+        {
+          "x": 695.0,
+          "y": 1315.0
+        },
+        {
+          "x": 576.0,
+          "y": 1334.0
+        },
+        {
+          "x": 540.0,
+          "y": 1490.0
+        }
+      ],
+      "platforms": [
+        {
+          "x": 252.0,
+          "y": 308.0
+        },
+        {
+          "x": 828.0,
+          "y": 324.0
+        },
+        {
+          "x": 220.0,
+          "y": 484.0
+        },
+        {
+          "x": 396.0,
+          "y": 404.0
+        },
+        {
+          "x": 668.0,
+          "y": 404.0
+        },
+        {
+          "x": 844.0,
+          "y": 500.0
+        },
+        {
+          "x": 508.0,
+          "y": 756.0
+        },
+        {
+          "x": 476.0,
+          "y": 932.0
+        },
+        {
+          "x": 652.0,
+          "y": 868.0
+        },
+        {
+          "x": 140.0,
+          "y": 1204.0
+        },
+        {
+          "x": 236.0,
+          "y": 1348.0
+        },
+        {
+          "x": 844.0,
+          "y": 1380.0
+        },
+        {
+          "x": 204.0,
+          "y": 1524.0
+        },
+        {
+          "x": 828.0,
+          "y": 1556.0
+        }
+      ]
+    },
+    {
+      "art": "level-belt",
+      "camera": {
+        "x": 0.0,
+        "y": 108.0,
+        "z": 55.0
+      },
+      "en": "BELT RIFT",
+      "hint": "S 形折返车道，敌人会更早贴近平台；用重炮覆盖折返点。",
+      "id": "belt",
+      "index": 2,
+      "map": "level-map-2",
+      "mapRect": {
+        "h": 1920.0,
+        "w": 1080.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "mul": [
+        {
+          "k": "hp",
+          "v": 1.28
+        },
+        {
+          "k": "speed",
+          "v": 0.98
+        },
+        {
+          "k": "reward",
+          "v": 1.15
+        }
+      ],
+      "name": "陨带断层",
+      "path": [
+        {
+          "x": 246.0,
+          "y": 215.0
+        },
+        {
+          "x": 246.0,
+          "y": 230.0
+        },
+        {
+          "x": 246.0,
+          "y": 342.0
+        },
+        {
+          "x": 306.0,
+          "y": 354.0
+        },
+        {
+          "x": 342.0,
+          "y": 450.0
+        },
+        {
+          "x": 426.0,
+          "y": 498.0
+        },
+        {
+          "x": 534.0,
+          "y": 498.0
+        },
+        {
+          "x": 642.0,
+          "y": 498.0
+        },
+        {
+          "x": 750.0,
+          "y": 498.0
+        },
+        {
+          "x": 786.0,
+          "y": 558.0
+        },
+        {
+          "x": 882.0,
+          "y": 618.0
+        },
+        {
+          "x": 906.0,
+          "y": 678.0
+        },
+        {
+          "x": 882.0,
+          "y": 738.0
+        },
+        {
+          "x": 786.0,
+          "y": 798.0
+        },
+        {
+          "x": 726.0,
+          "y": 810.0
+        },
+        {
+          "x": 633.0,
+          "y": 810.0
+        },
+        {
+          "x": 540.0,
+          "y": 810.0
+        },
+        {
+          "x": 447.0,
+          "y": 810.0
+        },
+        {
+          "x": 354.0,
+          "y": 810.0
+        },
+        {
+          "x": 354.0,
+          "y": 858.0
+        },
+        {
+          "x": 234.0,
+          "y": 918.0
+        },
+        {
+          "x": 198.0,
+          "y": 978.0
+        },
+        {
+          "x": 222.0,
+          "y": 1050.0
+        },
+        {
+          "x": 306.0,
+          "y": 1098.0
+        },
+        {
+          "x": 378.0,
+          "y": 1110.0
+        },
+        {
+          "x": 390.0,
+          "y": 1158.0
+        },
+        {
+          "x": 486.0,
+          "y": 1218.0
+        },
+        {
+          "x": 510.0,
+          "y": 1278.0
+        },
+        {
+          "x": 510.0,
+          "y": 1374.0
+        },
+        {
+          "x": 510.0,
+          "y": 1470.0
+        },
+        {
+          "x": 528.0,
+          "y": 1560.0
+        },
+        {
+          "x": 545.0,
+          "y": 1650.0
+        }
+      ],
+      "platforms": [
+        {
+          "x": 420.0,
+          "y": 300.0
+        },
+        {
+          "x": 780.0,
+          "y": 330.0
+        },
+        {
+          "x": 600.0,
+          "y": 360.0
+        },
+        {
+          "x": 180.0,
+          "y": 450.0
+        },
+        {
+          "x": 900.0,
+          "y": 480.0
+        },
+        {
+          "x": 450.0,
+          "y": 630.0
+        },
+        {
+          "x": 630.0,
+          "y": 630.0
+        },
+        {
+          "x": 240.0,
+          "y": 750.0
+        },
+        {
+          "x": 780.0,
+          "y": 930.0
+        },
+        {
+          "x": 600.0,
+          "y": 960.0
+        },
+        {
+          "x": 420.0,
+          "y": 990.0
+        },
+        {
+          "x": 210.0,
+          "y": 1200.0
+        },
+        {
+          "x": 630.0,
+          "y": 1230.0
+        },
+        {
+          "x": 360.0,
+          "y": 1290.0
+        }
+      ]
+    },
+    {
+      "art": "level-nexus",
+      "en": "WORMHOLE NEXUS",
+      "hint": "枢纽的塔台更集中，善用英雄补位漏掉的敌人。",
+      "id": "nexus",
+      "index": 3,
+      "map": "map",
+      "mapRect": {
+        "h": 1560.0,
+        "w": 1080.0,
+        "x": 0.0,
+        "y": 190.0
+      },
+      "mul": [
+        {
+          "k": "hp",
+          "v": 2.6
+        },
+        {
+          "k": "speed",
+          "v": 1.12
+        },
+        {
+          "k": "reward",
+          "v": 1.2
+        }
+      ],
+      "name": "虫洞枢纽",
+      "path": [
+        {
+          "x": 70.0,
+          "y": 1360.0
+        },
+        {
+          "x": 950.0,
+          "y": 1360.0
+        },
+        {
+          "x": 950.0,
+          "y": 1120.0
+        },
+        {
+          "x": 220.0,
+          "y": 1120.0
+        },
+        {
+          "x": 220.0,
+          "y": 880.0
+        },
+        {
+          "x": 700.0,
+          "y": 880.0
+        },
+        {
+          "x": 950.0,
+          "y": 700.0
+        },
+        {
+          "x": 950.0,
+          "y": 470.0
+        },
+        {
+          "x": 420.0,
+          "y": 470.0
+        },
+        {
+          "x": 420.0,
+          "y": 270.0
+        }
+      ],
+      "platforms": [
+        {
+          "x": 300.0,
+          "y": 1240.0
+        },
+        {
+          "x": 560.0,
+          "y": 1240.0
+        },
+        {
+          "x": 830.0,
+          "y": 1240.0
+        },
+        {
+          "x": 340.0,
+          "y": 1000.0
+        },
+        {
+          "x": 500.0,
+          "y": 1000.0
+        },
+        {
+          "x": 700.0,
+          "y": 1000.0
+        },
+        {
+          "x": 880.0,
+          "y": 1000.0
+        },
+        {
+          "x": 290.0,
+          "y": 780.0
+        },
+        {
+          "x": 540.0,
+          "y": 780.0
+        },
+        {
+          "x": 600.0,
+          "y": 590.0
+        },
+        {
+          "x": 830.0,
+          "y": 590.0
+        },
+        {
+          "x": 200.0,
+          "y": 360.0
+        },
+        {
+          "x": 620.0,
+          "y": 360.0
+        },
+        {
+          "x": 880.0,
+          "y": 360.0
+        }
+      ]
+    },
+    {
+      "art": "level-crater",
+      "camera": {
+        "x": 0.0,
+        "y": 108.0,
+        "z": 55.0
+      },
+      "en": "CRATER VERGE",
+      "hint": "螺旋车道层层内收，同一座塔能覆盖多圈；优先锁死外侧长直段。",
+      "id": "crater",
+      "index": 4,
+      "map": "level-map-3",
+      "mapRect": {
+        "h": 1920.0,
+        "w": 1080.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "mul": [
+        {
+          "k": "hp",
+          "v": 3.4
+        },
+        {
+          "k": "speed",
+          "v": 1.15
+        },
+        {
+          "k": "reward",
+          "v": 1.35
+        }
+      ],
+      "name": "陨石外环",
+      "path": [
+        {
+          "x": 318.0,
+          "y": 30.0
+        },
+        {
+          "x": 318.0,
+          "y": 126.0
+        },
+        {
+          "x": 318.0,
+          "y": 222.0
+        },
+        {
+          "x": 252.0,
+          "y": 300.0
+        },
+        {
+          "x": 186.0,
+          "y": 378.0
+        },
+        {
+          "x": 150.0,
+          "y": 450.0
+        },
+        {
+          "x": 210.0,
+          "y": 522.0
+        },
+        {
+          "x": 330.0,
+          "y": 522.0
+        },
+        {
+          "x": 450.0,
+          "y": 522.0
+        },
+        {
+          "x": 546.0,
+          "y": 486.0
+        },
+        {
+          "x": 654.0,
+          "y": 486.0
+        },
+        {
+          "x": 762.0,
+          "y": 486.0
+        },
+        {
+          "x": 828.0,
+          "y": 552.0
+        },
+        {
+          "x": 894.0,
+          "y": 618.0
+        },
+        {
+          "x": 942.0,
+          "y": 690.0
+        },
+        {
+          "x": 990.0,
+          "y": 810.0
+        },
+        {
+          "x": 990.0,
+          "y": 858.0
+        },
+        {
+          "x": 1002.0,
+          "y": 974.0
+        },
+        {
+          "x": 1002.0,
+          "y": 1078.0
+        },
+        {
+          "x": 1002.0,
+          "y": 1182.0
+        },
+        {
+          "x": 930.0,
+          "y": 1254.0
+        },
+        {
+          "x": 858.0,
+          "y": 1326.0
+        },
+        {
+          "x": 786.0,
+          "y": 1398.0
+        },
+        {
+          "x": 714.0,
+          "y": 1434.0
+        },
+        {
+          "x": 642.0,
+          "y": 1458.0
+        },
+        {
+          "x": 528.0,
+          "y": 1458.0
+        },
+        {
+          "x": 414.0,
+          "y": 1458.0
+        },
+        {
+          "x": 342.0,
+          "y": 1386.0
+        },
+        {
+          "x": 270.0,
+          "y": 1314.0
+        },
+        {
+          "x": 222.0,
+          "y": 1218.0
+        },
+        {
+          "x": 216.0,
+          "y": 1110.0
+        },
+        {
+          "x": 210.0,
+          "y": 1002.0
+        },
+        {
+          "x": 282.0,
+          "y": 930.0
+        },
+        {
+          "x": 354.0,
+          "y": 858.0
+        },
+        {
+          "x": 426.0,
+          "y": 810.0
+        },
+        {
+          "x": 498.0,
+          "y": 786.0
+        },
+        {
+          "x": 606.0,
+          "y": 786.0
+        },
+        {
+          "x": 702.0,
+          "y": 882.0
+        },
+        {
+          "x": 738.0,
+          "y": 978.0
+        },
+        {
+          "x": 738.0,
+          "y": 1086.0
+        },
+        {
+          "x": 630.0,
+          "y": 1194.0
+        },
+        {
+          "x": 582.0,
+          "y": 1218.0
+        },
+        {
+          "x": 486.0,
+          "y": 1218.0
+        },
+        {
+          "x": 414.0,
+          "y": 1134.0
+        },
+        {
+          "x": 402.0,
+          "y": 1062.0
+        },
+        {
+          "x": 534.0,
+          "y": 942.0
+        }
+      ],
+      "platforms": [
+        {
+          "x": 136.0,
+          "y": 254.0
+        },
+        {
+          "x": 422.0,
+          "y": 280.0
+        },
+        {
+          "x": 864.0,
+          "y": 410.0
+        },
+        {
+          "x": 136.0,
+          "y": 618.0
+        },
+        {
+          "x": 474.0,
+          "y": 670.0
+        },
+        {
+          "x": 838.0,
+          "y": 748.0
+        },
+        {
+          "x": 266.0,
+          "y": 774.0
+        },
+        {
+          "x": 136.0,
+          "y": 904.0
+        },
+        {
+          "x": 552.0,
+          "y": 1086.0
+        },
+        {
+          "x": 136.0,
+          "y": 1320.0
+        },
+        {
+          "x": 656.0,
+          "y": 1320.0
+        },
+        {
+          "x": 344.0,
+          "y": 1554.0
+        },
+        {
+          "x": 734.0,
+          "y": 1554.0
+        },
+        {
+          "x": 526.0,
+          "y": 1580.0
+        }
+      ]
+    }
+  ],
+  "operatives": [
+    {
+      "affixes": [
+        "a_overclock",
+        "u_supply"
+      ],
+      "classId": "assault",
+      "color": "4ff3ff",
+      "en": "RAN",
+      "id": "ran",
+      "mods": [
+        {
+          "k": "atkSpeedMul",
+          "v": 0.1
+        }
+      ],
+      "name": "岚",
+      "portrait": "op-ran",
+      "title": "离子先锋",
+      "trait": "攻速 +10%"
+    },
+    {
+      "affixes": [
+        "a_crit",
+        "u_hero"
+      ],
+      "classId": "assault",
+      "color": "ff5b6e",
+      "en": "ZERO",
+      "id": "zero",
+      "mods": [
+        {
+          "k": "dmgMul",
+          "v": 0.08
+        }
+      ],
+      "name": "零式",
+      "portrait": "op-zero",
+      "title": "红瞳双持",
+      "trait": "伤害 +8%"
+    },
+    {
+      "affixes": [
+        "s_far",
+        "u_shred"
+      ],
+      "classId": "sniper",
+      "color": "8fa8ff",
+      "en": "VEGA",
+      "id": "vega",
+      "mods": [
+        {
+          "k": "rangeMul",
+          "v": 0.12
+        }
+      ],
+      "name": "维加",
+      "portrait": "op-vega",
+      "title": "深空游隼",
+      "trait": "射程 +12%"
+    },
+    {
+      "affixes": [
+        "s_pierce",
+        "s_exec"
+      ],
+      "classId": "sniper",
+      "color": "c77dff",
+      "en": "SERA",
+      "id": "sera",
+      "mods": [
+        {
+          "k": "dmgMul",
+          "v": 0.12
+        },
+        {
+          "k": "atkSpeedMul",
+          "v": -0.08
+        }
+      ],
+      "name": "赛拉",
+      "portrait": "op-sera",
+      "title": "静默之光",
+      "trait": "伤害 +12% / 攻速 -8%"
+    },
+    {
+      "affixes": [
+        "g_aoe",
+        "g_dmg"
+      ],
+      "classId": "siege",
+      "color": "ffb03a",
+      "en": "GROM",
+      "id": "grom",
+      "mods": [
+        {
+          "k": "dmgMul",
+          "v": 0.1
+        },
+        {
+          "k": "atkSpeedMul",
+          "v": -0.1
+        }
+      ],
+      "name": "格洛姆",
+      "portrait": "op-grom",
+      "title": "轨道之锤",
+      "trait": "伤害 +10% / 攻速 -10%"
+    },
+    {
+      "affixes": [
+        "g_burn",
+        "u_frost"
+      ],
+      "classId": "siege",
+      "color": "ff6bd6",
+      "en": "CHAOS",
+      "id": "chaos",
+      "mods": [
+        {
+          "k": "splashMul",
+          "v": 0.08
+        }
+      ],
+      "name": "卡俄斯",
+      "portrait": "op-chaos",
+      "title": "星爆工程师",
+      "trait": "爆炸半径 +8%"
+    },
+    {
+      "affixes": [
+        "i_guard",
+        "i_leak"
+      ],
+      "classId": "intercept",
+      "color": "5be39a",
+      "en": "ELLA",
+      "id": "ella",
+      "mods": [
+        {
+          "k": "guardHpMul",
+          "v": 0.1
+        }
+      ],
+      "name": "艾拉",
+      "portrait": "op-ella",
+      "title": "棱镜壁垒",
+      "trait": "拦截单位生命 +10%"
+    },
+    {
+      "affixes": [
+        "i_fast",
+        "a_killgold"
+      ],
+      "classId": "intercept",
+      "color": "ffd166",
+      "en": "NOVA",
+      "id": "nova",
+      "mods": [
+        {
+          "k": "guardRespawnMul",
+          "v": -0.1
+        }
+      ],
+      "name": "诺娃",
+      "portrait": "op-nova",
+      "title": "蜂群母体",
+      "trait": "重建 -10%"
+    }
+  ],
+  "tuning": {
+    "boardBottom": 1560.0,
+    "boardTop": 190.0,
+    "coreHp": 20,
+    "firstWaveDelay": 4.0,
+    "guardGap": 96.0,
+    "guardsPerTower": 2,
+    "heroDmg": 15.0,
+    "heroRange": 235.0,
+    "heroRate": 1.5,
+    "heroSpeed": 320.0,
+    "initialUnlocked": 6,
+    "levelDmg": 1.8,
+    "levelRange": 1.05,
+    "levelRate": 1.1,
+    "maxTowerLevel": 4,
+    "startGold": 40,
+    "summonBase": 10.0,
+    "summonGrowth": 1.28,
+    "summonsPerUnlock": 3,
+    "upgradeBase": 24.0,
+    "upgradeGrowth": 1.42,
+    "waveBonusBase": 8,
+    "waveBonusPerWave": 3,
+    "waveInterval": 24.0
+  },
+  "waves": [
+    {
+      "batches": [
+        {
+          "count": 4,
+          "delay": 0.0,
+          "interval": 0.7,
+          "type": "grunt"
+        },
+        {
+          "count": 4,
+          "delay": 8.0,
+          "interval": 0.7,
+          "type": "grunt"
+        }
+      ]
+    },
+    {
+      "batches": [
+        {
+          "count": 6,
+          "delay": 0.0,
+          "interval": 0.6,
+          "type": "grunt"
+        },
+        {
+          "count": 3,
+          "delay": 7.0,
+          "interval": 0.5,
+          "type": "runner"
+        }
+      ]
+    },
+    {
+      "batches": [
+        {
+          "count": 5,
+          "delay": 0.0,
+          "interval": 0.6,
+          "type": "grunt"
+        },
+        {
+          "count": 4,
+          "delay": 6.0,
+          "interval": 0.5,
+          "type": "runner"
+        },
+        {
+          "count": 1,
+          "delay": 12.0,
+          "interval": 1.0,
+          "type": "tank"
+        }
+      ]
+    },
+    {
+      "batches": [
+        {
+          "count": 6,
+          "delay": 0.0,
+          "interval": 0.5,
+          "type": "grunt"
+        },
+        {
+          "count": 5,
+          "delay": 5.0,
+          "interval": 0.45,
+          "type": "runner"
+        },
+        {
+          "count": 2,
+          "delay": 10.0,
+          "interval": 2.0,
+          "type": "tank"
+        }
+      ]
+    },
+    {
+      "batches": [
+        {
+          "count": 1,
+          "delay": 0.0,
+          "interval": 1.0,
+          "type": "elite"
+        },
+        {
+          "count": 8,
+          "delay": 3.0,
+          "interval": 0.45,
+          "type": "grunt"
+        },
+        {
+          "count": 4,
+          "delay": 10.0,
+          "interval": 0.4,
+          "type": "runner"
+        }
+      ],
+      "warning": "elite"
+    },
+    {
+      "batches": [
+        {
+          "count": 8,
+          "delay": 0.0,
+          "interval": 0.35,
+          "type": "runner"
+        },
+        {
+          "count": 3,
+          "delay": 4.0,
+          "interval": 1.6,
+          "type": "tank"
+        },
+        {
+          "count": 6,
+          "delay": 9.0,
+          "interval": 0.5,
+          "type": "grunt"
+        }
+      ]
+    },
+    {
+      "batches": [
+        {
+          "count": 4,
+          "delay": 0.0,
+          "interval": 1.4,
+          "type": "tank"
+        },
+        {
+          "count": 8,
+          "delay": 3.0,
+          "interval": 0.45,
+          "type": "grunt"
+        },
+        {
+          "count": 6,
+          "delay": 10.0,
+          "interval": 0.35,
+          "type": "runner"
+        }
+      ]
+    },
+    {
+      "batches": [
+        {
+          "count": 1,
+          "delay": 0.0,
+          "interval": 1.0,
+          "type": "elite"
+        },
+        {
+          "count": 4,
+          "delay": 4.0,
+          "interval": 1.3,
+          "type": "tank"
+        },
+        {
+          "count": 8,
+          "delay": 8.0,
+          "interval": 0.3,
+          "type": "runner"
+        }
+      ],
+      "warning": "elite"
+    },
+    {
+      "batches": [
+        {
+          "count": 2,
+          "delay": 0.0,
+          "interval": 5.0,
+          "type": "elite"
+        },
+        {
+          "count": 10,
+          "delay": 3.0,
+          "interval": 0.28,
+          "type": "runner"
+        },
+        {
+          "count": 4,
+          "delay": 9.0,
+          "interval": 1.2,
+          "type": "tank"
+        }
+      ],
+      "warning": "elite"
+    },
+    {
+      "batches": [
+        {
+          "count": 1,
+          "delay": 0.0,
+          "interval": 1.0,
+          "type": "boss"
+        },
+        {
+          "count": 2,
+          "delay": 6.0,
+          "interval": 4.0,
+          "type": "elite"
+        },
+        {
+          "count": 4,
+          "delay": 10.0,
+          "interval": 1.0,
+          "type": "tank"
+        },
+        {
+          "count": 8,
+          "delay": 12.0,
+          "interval": 0.3,
+          "type": "runner"
+        }
+      ],
+      "warning": "boss"
+    }
+  ]
+}

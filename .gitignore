@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------- 密钥
+# API 密钥永不入库（新密钥由使用者自行放置）
+tools/.apimart.key
+tools/.apimart-ip.json
+tools/.apimart-state.json
+*.key
+
+# ---------------------------------------------------------------- Unity 生成物
+# 这些都可以由 Unity 重新生成，不应提交
+/Library/
+/Temp/
+/Obj/
+/Build/
+/Builds/
+/Logs/
+/UserSettings/
+/MemoryCaptures/
+*.csproj
+*.sln
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# 打包/自检产物
+*.log
+/Shots/
+
+# ---------------------------------------------------------------- 系统 / 编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.vs/
+.idea/
+.vscode/
+
+# Cursor ����Ԫ���ݣ������Զ����ɣ�
+/canvas/

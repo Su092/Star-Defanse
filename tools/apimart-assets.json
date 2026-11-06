@@ -1,0 +1,547 @@
+{
+  "style": "Japanese cel-shaded anime illustration (thick dark outlines, flat two-tone hard-edged shadows, crisp rim highlights), space sci-fi, deep purple-black starfield background, accents of neon cyan #4FF3FF, magenta #FF3DAE and warm gold, clean white-and-navy armor plating, highly polished, no text, no watermark, no logo, no UI",
+  "assets": [
+    {
+      "id": "menu-kv",
+      "out": "assets/art/gen/menu-kv.png",
+      "size": "1024x1536",
+      "prompt": "Vertical key visual for a sci-fi tower defense game. A lone female starship commander in a white-and-navy exosuit with a glowing cyan energy scarf stands on a space-station observation deck seen from behind at a three-quarter angle, face partly visible, looking out at a gigantic glowing ring orbital lane that arcs across a deep purple nebula. Distant hex-shaped enemy drones approach as small red threat lights. Silhouettes of two turret pylons with cyan glowing cores frame the lower left and right. Cinematic rim light from upper left."
+    },
+    {
+      "id": "battle-backdrop",
+      "out": "assets/art/gen/battle-backdrop.png",
+      "size": "1024x1536",
+      "prompt": "Empty battlefield background plate for a tower defense game, no people, no characters, no weapons in foreground. Top-down view of dark metal deck plating of a ring-shaped space station, faint hexagonal energy grid etched into the floor, thin cyan seams between hull panels, deep purple nebula and distant stars above, a huge dark gas giant with a razor-thin ring near the top edge. Very low contrast and dark overall so small glowing units read clearly on top, subtle bloom, empty scene, no text."
+    },
+    {
+      "id": "game-icon",
+      "out": "assets/art/gen/game-icon.png",
+      "size": "1024x1024",
+      "prompt": "Square application icon for a sci-fi tower defense game, centered emblem design, no characters, no text. A glowing cyan hexagonal energy core set inside a heavy white-and-navy armoured hex frame, one thin magenta orbital ring sweeping around it at an angle, small cyan light seams, floating on a dark purple nebula background with sparse stars, thick cel-shaded outlines, strong rim light, bold and readable when scaled down to 64 pixels."
+    },
+    {
+      "id": "op-ran",
+      "out": "assets/art/gen/op-ran.png",
+      "size": "1024x1536",
+      "prompt": "Single character bust portrait card, one person only, centered, plain flat dark navy background. Female assault pilot codename RAN: short silver hair with glowing cyan strands, confident half smile, white and cyan light exosuit armor with hexagonal chest plate and glowing energy seams, holding two compact twin-barreled pulse pistols, cyan energy trails. Cel-shaded anime style, thick outlines, hard shadows."
+    },
+    {
+      "id": "op-zero",
+      "out": "assets/art/gen/op-zero.png",
+      "size": "1024x1536",
+      "prompt": "Single character bust portrait card, one person only, centered, plain flat dark navy background. Male assault pilot codename ZERO: short messy black hair, glowing red visor over his eyes, black close-fitting tactical armor with red energy lines, dual pulse handguns held low with red muzzle sparks. Cel-shaded anime style, thick outlines, hard shadows, cool rim light."
+    },
+    {
+      "id": "op-vega",
+      "out": "assets/art/gen/op-vega.png",
+      "size": "1024x1536",
+      "prompt": "Single character bust portrait card, one person only, centered, plain flat dark navy background. Male sniper codename VEGA: long dark hair tied back, one glowing blue monocle lens, white and blue long cloak over light armor, a very long thin rail rifle resting on his shoulder, faint blue targeting reticle light. Cel-shaded anime style, thick outlines, hard shadows."
+    },
+    {
+      "id": "op-sera",
+      "out": "assets/art/gen/op-sera.png",
+      "size": "1024x1536",
+      "prompt": "Single character bust portrait card, one person only, centered, plain flat dark navy background. Female sniper codename SERA: long white hair, calm closed expression, pale violet floating scope ring hovering beside her head, white and violet armored coat, slender energy sniper rifle with a glowing violet core, quiet and reserved mood. Cel-shaded anime style, thick outlines, hard shadows."
+    },
+    {
+      "id": "op-grom",
+      "out": "assets/art/gen/op-grom.png",
+      "size": "1024x1536",
+      "prompt": "Single character bust portrait card, one person only, centered, plain flat dark navy background. Burly male siege engineer codename GROM: shaved head with a metal plate implant, huge asymmetric shoulder armor, a massive shoulder-mounted multi-barrel mortar cannon venting orange molten light, soot and heat haze, orange glow on his jaw. Cel-shaded anime style, thick outlines, hard shadows."
+    },
+    {
+      "id": "op-chaos",
+      "out": "assets/art/gen/op-chaos.png",
+      "size": "1024x1536",
+      "prompt": "Single character bust portrait card, one person only, centered, plain flat dark navy background. Female siege technician codename CHAOS: dark skin, magenta dyed short hair, goggles pushed up on her forehead, greasy jumpsuit with tool harness, two small floating hexagonal drone turrets beside her shoulders emitting magenta energy, confident grin. Cel-shaded anime style, thick outlines, hard shadows."
+    },
+    {
+      "id": "op-ella",
+      "out": "assets/art/gen/op-ella.png",
+      "size": "1024x1536",
+      "prompt": "Single character bust portrait card, one person only, centered, plain flat dark navy background. Female interceptor guardian codename ELLA: teal short bob hair, calm protective stare, heavy white and green shield armor, a translucent prism barrier shield raised beside her, three small floating prism drones orbiting, green energy arcs. Cel-shaded anime style, thick outlines, hard shadows."
+    },
+    {
+      "id": "op-nova",
+      "out": "assets/art/gen/op-nova.png",
+      "size": "1024x1536",
+      "prompt": "Single character bust portrait card, one person only, centered, plain flat dark navy background. Androgynous interceptor commander codename NOVA: platinum hair, gold glowing eyes, ornate white and gold armor with a hive-like backpack, several small golden hexagonal drone swarms floating around the shoulders, warm gold energy. Cel-shaded anime style, thick outlines, hard shadows."
+    },
+    {
+      "id": "elite-threat",
+      "out": "assets/art/gen/elite-threat.png",
+      "size": "1024x1536",
+      "prompt": "Hostile enemy unit design, no humans. Heavy armored alien drone called the BREAKER: angular six-sided warship body, four rotating spike blades, glowing magenta hexagonal core in the center, dark crimson plating with battle scars, sparks and heat vents, menacing low angle, deep purple starfield background, cel-shaded anime mecha style, thick outlines, hard shadows."
+    },
+    {
+      "id": "boss-threat",
+      "out": "assets/art/gen/boss-threat.png",
+      "size": "1024x1536",
+      "prompt": "Hostile enemy flagship design, no humans. Giant annihilator-class warship seen from a low front angle: massive dark hull with four swept wing fins, a bright magenta hexagonal core blazing in the middle, two rotating energy rings orbiting the hull, magenta lightning arcs, deep purple nebula background, overwhelming and grand, cel-shaded anime mecha style, thick outlines, hard shadows."
+    },
+    {
+      "id": "level-starport",
+      "out": "assets/art/gen/level-starport.png",
+      "size": "1536x1024",
+      "prompt": "Wide landscape concept art of a space station arcade sector: a long serpentine glowing rail corridor with four folded lanes winding through a dark metal hangar deck, cyan lane lights, magenta warning signs as abstract glowing rectangles, empty scene with no people, no characters, high angle view, cel-shaded anime sci-fi style, thick outlines, dark purple atmosphere."
+    },
+    {
+      "id": "level-belt",
+      "out": "assets/art/gen/level-belt.png",
+      "size": "1536x1024",
+      "prompt": "Wide landscape concept art of a broken asteroid belt rift: a long zigzag glowing rail corridor cutting between floating rock fragments and shattered station fragments, violet lane lights, dust and debris, empty scene with no people, no characters, high angle view, cel-shaded anime sci-fi style, thick outlines, dark purple atmosphere."
+    },
+    {
+      "id": "level-nexus",
+      "out": "assets/art/gen/level-nexus.png",
+      "size": "1536x1024",
+      "prompt": "Wide landscape concept art of a wormhole nexus: a short compact glowing rail corridor looping through a ring-shaped gateway structure around a swirling violet wormhole, pink energy arcs across metal plates, empty scene with no people, no characters, high angle view, cel-shaded anime sci-fi style, thick outlines, dramatic magenta and purple lighting."
+    },
+    {
+      "id": "sprite-tower-assault-l1",
+      "out": "assets/art/gen/sprites/tower-assault-l1.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Compact assault turret: hexagonal white-and-navy body with a cyan glowing core, two short parallel pulse barrels pointing up, small stabilizer fins, light and agile look. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-assault-l3",
+      "out": "assets/art/gen/sprites/tower-assault-l3.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Upgraded heavy assault turret: larger hexagonal armored body, four long parallel pulse barrels pointing up with glowing cyan muzzles, side capacitor pods, gold accent trim, aggressive and bulky. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-sniper-l1",
+      "out": "assets/art/gen/sprites/tower-sniper-l1.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Slim sniper railgun turret: narrow violet-white body on a low tripod base, one very long thin rail barrel pointing up with a glowing violet muzzle brake and a scope ring, elegant and precise. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-sniper-l3",
+      "out": "assets/art/gen/sprites/tower-sniper-l3.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Upgraded siege sniper railgun: heavy elongated body, one extremely long reinforced rail barrel pointing up with cooling fins and a large violet scope ring, floating side stabilizer wings, gold trim. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-siege-l1",
+      "out": "assets/art/gen/sprites/tower-siege-l1.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Siege mortar turret: chunky orange-and-white octagonal body, wide short mortar barrel pointing up with a glowing orange muzzle, round ammunition drum on the side, heavy and industrial. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-siege-l3",
+      "out": "assets/art/gen/sprites/tower-siege-l3.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Upgraded heavy siege artillery: massive octagonal armored body, two wide mortar barrels pointing up with molten orange muzzles, twin ammo drums, reinforced plating and gold trim, very heavy. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-intercept-l1",
+      "out": "assets/art/gen/sprites/tower-intercept-l1.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Interceptor launcher pylon: a low green-and-white hexagonal armored base with an open docking cradle on top and a bright green emitter lens inside the cradle, energy conduits running up the base, no drone, no floating object, clearly a launcher structure that would deploy units elsewhere. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-intercept-l3",
+      "out": "assets/art/gen/sprites/tower-intercept-l3.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Interceptor launcher pylon Mk3: reinforced green-and-white armored base with three open docking cradles arranged in a triangle, green emitter lenses with light beams, cable conduits, gold trim, no drone, no floating object. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-enemy-grunt",
+      "out": "assets/art/gen/sprites/enemy-grunt.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Scavenger drone enemy: small dark teal hexagonal hull with a single glowing teal eye, two stubby forward claws, battle-worn plating, nose pointing up, menacing but fragile. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-enemy-runner",
+      "out": "assets/art/gen/sprites/enemy-runner.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Fast dart drone enemy: sleek narrow magenta hull shaped like an arrowhead with swept back fins, glowing pink engine trail behind, nose pointing up, built for speed. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-enemy-tank",
+      "out": "assets/art/gen/sprites/enemy-tank.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Heavy armored cruiser enemy: wide blue-grey armored hull with angular side armor plates, two short sponson guns pointing up, glowing blue core in the middle, thick armor, slow and tough. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-enemy-elite",
+      "out": "assets/art/gen/sprites/enemy-elite.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Elite breaker enemy: bulky dark crimson hexagonal warship body, four large rotating spike blades around it, blazing magenta hexagonal core in the center, battle scars and heat vents, nose pointing up, intimidating. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-enemy-boss",
+      "out": "assets/art/gen/sprites/enemy-boss.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Annihilator flagship enemy: colossal dark magenta capital ship seen from above, four long swept wing fins, a huge blazing magenta hexagonal core in the middle, two glowing energy rings orbiting the hull, magenta lightning arcs, nose pointing up, overwhelming. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-hero",
+      "out": "assets/art/gen/sprites/hero.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Player hero character seen from a high three-quarter angle, standing upright and facing the viewer slightly to the side (not rotated): young starship commander in a white-and-navy exosuit with a long glowing cyan scarf and cyan visor, compact energy rifle held at the side, dynamic idle stance, full body. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-guard",
+      "out": "assets/art/gen/sprites/guard.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Deployed interceptor barricade unit: a flat hexagonal ground mine-like platform in green and white with a large translucent green energy shield wall raised on its front side, bright green crystal core on the back, small stabilizing legs, top-down view, clearly a separate deployable barrier that blocks the lane, no barrel. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-core",
+      "out": "assets/art/gen/sprites/core.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Defense core structure: large hexagonal armored base with a towering cyan crystal in the center, glowing cyan energy ring around the base, cables and vents, seen from above at a slight angle, symmetrical, imposing. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-spawn-gate",
+      "out": "assets/art/gen/sprites/spawn-gate.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Enemy spawn portal: dark hexagonal metal gate frame with a swirling magenta energy vortex inside, glowing magenta runes on the rim, top-down view, no characters. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "battle-map",
+      "out": "assets/art/gen/battle-map.png",
+      "size": "1024x1536",
+      "alpha": false,
+      "prompt": "Top-down tactical map background plate of a space station arena: a dark hexagonal-plated deck floor filling the whole frame, subtle cyan seam lines between plates, four wide empty parallel transit lanes suggested by slightly darker recessed channels running horizontally, glowing warning stripes along the outer edges, deep purple ambient light, faint starfield haze at the very top and bottom edges, completely empty of objects and characters. Top-down environment concept art for a 2D sci-fi tower defense game, no characters, no units, no text, no UI. Thick dark outlines, flat cel-shaded shading, cool cyan and magenta accent lighting, deep purple-black space ambience, very low contrast so small glowing units read clearly on top."
+    },
+    {
+      "id": "sprite-platform",
+      "out": "assets/art/gen/sprites/platform.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Plain defense tower pad: a simple flat hexagonal metal platform made of dark grey and navy armor plates, one thin cyan ring line near the rim, a few bolts, no gold, no magenta, no arrows, no emissive decoration, understated and industrial, seen straight from above, empty deck. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-platform-locked",
+      "out": "assets/art/gen/sprites/platform-locked.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Locked plain defense tower pad: the same simple flat hexagonal dark grey metal platform, powered down, the cyan ring turned off and dim, a single simple metal clamp bar across the deck with a small violet lock icon, no gold, no magenta stripes, understated and industrial, seen straight from above, empty deck. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-assault-l2",
+      "out": "assets/art/gen/sprites/tower-assault-l2.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Mid-tier assault turret: same hexagonal white-and-navy body as the basic model but larger, two longer pulse barrels pointing up with brighter cyan muzzles, a cyan capacitor block between the barrels, small vent fins on the sides. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-assault-l4",
+      "out": "assets/art/gen/sprites/tower-assault-l4.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Max-tier assault turret: bulky hexagonal armored body with four heavy plasma barrels pointing up, glowing gold rings around the muzzles, a floating cyan energy halo above the body, magenta status lights, gold trim plating, powerful end-game look. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-sniper-l2",
+      "out": "assets/art/gen/sprites/tower-sniper-l2.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Mid-tier sniper railgun: the slim violet-white body with a longer reinforced rail barrel pointing up, cooling fin stack along the barrel, larger violet scope ring, small side stabilizer fins. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-sniper-l4",
+      "out": "assets/art/gen/sprites/tower-sniper-l4.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Max-tier sniper railgun: massive two-stage railgun body with an extremely long segmented barrel pointing up, floating violet stabilizer wings on both sides, glowing gold rings at the muzzle and base, magenta energy coils, gold trim plating, apex precision weapon look. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-siege-l2",
+      "out": "assets/art/gen/sprites/tower-siege-l2.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Mid-tier siege mortar: chunky orange-and-white octagonal body with a wider mortar barrel pointing up, glowing orange muzzle, two ammunition drums on the sides, heat vents on the plating. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-siege-l4",
+      "out": "assets/art/gen/sprites/tower-siege-l4.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Max-tier siege artillery: enormous octagonal armored body with twin wide mortar barrels pointing up, molten orange glowing muzzles, three ammo drums, two small floating ammunition drones beside the body, gold trim plating, devastation-class look. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-intercept-l2",
+      "out": "assets/art/gen/sprites/tower-intercept-l2.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Interceptor launcher pylon Mk2: taller green-and-white armored base with two open docking cradles on top, brighter green emitter lenses in each cradle, side energy conduits and vents, no drone, no floating object. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "sprite-tower-intercept-l4",
+      "out": "assets/art/gen/sprites/tower-intercept-l4.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Interceptor launcher pylon Mk4: massive green-and-white command pylon with four open docking cradles, a rotating gold containment ring around the base, powerful green emitter lenses glowing upward, gold trim plating, no drone, no floating object, apex support structure. Game asset sprite for a 2D top-down sci-fi tower defense game: a single isolated object, top-down view with the barrel/nose pointing UP (towards the top of the image), centered in frame, on a fully transparent background, no ground shadow, no pedestal, no text, no UI frame. Thick dark outlines, flat two-tone cel-shaded shading, crisp rim light, neon cyan #4FF3FF, magenta #FF3DAE and warm gold accents, white-and-navy armor plating, highly polished anime mecha style."
+    },
+    {
+      "id": "ui-panel",
+      "out": "assets/art/gen/ui/panel.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Main dialogue panel: softly rounded rectangle with chamfered corners, neon cyan edge light, dark navy translucent glass interior, thin double border line, very subtle corner accents. Game UI frame asset for a 2D sci-fi tower defense game, front-on flat view, perfectly centered, symmetric, chamfered corners, thin neon cyan #4FF3FF edge light and subtle inner glow, dark navy glass interior, clean panel with an empty interior, no text, no letters, no numbers, no icons, no buttons inside, transparent pixels outside the panel silhouette so it can be used as a 9-slice UI texture, thick consistent border thickness on all four sides, cel-shaded anime sci-fi style."
+    },
+    {
+      "id": "ui-panel-gold",
+      "out": "assets/art/gen/ui/panel-gold.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Emphasised dialogue panel: softly rounded rectangle with chamfered corners, warm gold edge light, dark navy translucent glass interior, thin double border line, very subtle corner accents. Game UI frame asset for a 2D sci-fi tower defense game, front-on flat view, perfectly centered, symmetric, chamfered corners, thin neon cyan #4FF3FF edge light and subtle inner glow, dark navy glass interior, clean panel with an empty interior, no text, no letters, no numbers, no icons, no buttons inside, transparent pixels outside the panel silhouette so it can be used as a 9-slice UI texture, thick consistent border thickness on all four sides, cel-shaded anime sci-fi style."
+    },
+    {
+      "id": "ui-button-primary",
+      "out": "assets/art/gen/ui/button-primary.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "A single flat 2D UI button graphic that fills the entire image from edge to edge, as if it were an isolated UI asset sheet. NOT a scene, NOT an illustration, NO characters, NO robots, NO spaceships, NO background artwork, NO stars, NO logo, NO text, NO letters, NO icons, NO numbers. Only the button: a wide horizontal rounded rectangle with chamfered corners, one thin uniform neon cyan #4FF3FF border line, completely plain flat dark navy interior, small neon cyan #4FF3FF tick marks only at the four corners. Cel-shaded anime sci-fi UI style, crisp edges, transparent outside the button silhouette."
+    },
+    {
+      "id": "ui-button-gold",
+      "out": "assets/art/gen/ui/button-gold.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "A single flat 2D UI button graphic that fills the entire image from edge to edge, as if it were an isolated UI asset sheet. NOT a scene, NOT an illustration, NO characters, NO robots, NO spaceships, NO background artwork, NO stars, NO logo, NO text, NO letters, NO icons, NO numbers. Only the button: a wide horizontal rounded rectangle with chamfered corners, one thin uniform warm gold #FFD166 border line, completely plain flat dark navy interior, small warm gold #FFD166 tick marks only at the four corners. Cel-shaded anime sci-fi UI style, crisp edges, transparent outside the button silhouette."
+    },
+    {
+      "id": "ui-chip",
+      "out": "assets/art/gen/ui/chip.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Small pill-shaped tag frame: fully rounded ends, thin violet-cyan border, dark indigo translucent interior, empty interior, minimal decoration, for short labels. Game UI frame asset for a 2D sci-fi tower defense game, front-on flat view, perfectly centered, symmetric, chamfered corners, thin neon cyan #4FF3FF edge light and subtle inner glow, dark navy glass interior, clean panel with an empty interior, no text, no letters, no numbers, no icons, no buttons inside, transparent pixels outside the panel silhouette so it can be used as a 9-slice UI texture, thick consistent border thickness on all four sides, cel-shaded anime sci-fi style."
+    },
+    {
+      "id": "ui-bar",
+      "out": "assets/art/gen/ui/bar.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Thin horizontal gauge frame: long rounded rectangle with a cyan metallic border and rounded end caps, dark hollow interior, no fill inside, empty, for a health bar. Game UI frame asset for a 2D sci-fi tower defense game, front-on flat view, perfectly centered, symmetric, chamfered corners, thin neon cyan #4FF3FF edge light and subtle inner glow, dark navy glass interior, clean panel with an empty interior, no text, no letters, no numbers, no icons, no buttons inside, transparent pixels outside the panel silhouette so it can be used as a 9-slice UI texture, thick consistent border thickness on all four sides, cel-shaded anime sci-fi style."
+    },
+    {
+      "id": "ui-card",
+      "out": "assets/art/gen/ui/card.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "prompt": "Portrait card frame: vertical rectangle with chamfered corners, cyan edge light, dark navy glass interior, small corner brackets at the top, empty interior, for a character card. Game UI frame asset for a 2D sci-fi tower defense game, front-on flat view, perfectly centered, symmetric, chamfered corners, thin neon cyan #4FF3FF edge light and subtle inner glow, dark navy glass interior, clean panel with an empty interior, no text, no letters, no numbers, no icons, no buttons inside, transparent pixels outside the panel silhouette so it can be used as a 9-slice UI texture, thick consistent border thickness on all four sides, cel-shaded anime sci-fi style."
+    },
+    {
+      "id": "ref3d-tower-assault",
+      "out": "assets/art/ref3d/raw/tower-assault.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Sci-fi pulse turret: squat hexagonal armored base with three supporting legs, a rotating drum body, two parallel pulse cannons, cyan glowing muzzle rings and energy seams, white and navy armor with gold accents. Left: FRONT view (barrel pointing toward the viewer). Center: SIDE view (barrel pointing left). Right: TOP view looking straight down. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ref3d-tower-sniper",
+      "out": "assets/art/ref3d/raw/tower-sniper.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Sci-fi railgun turret: narrow tall body on a tripod base, one very long thin segmented railgun barrel with cooling fins and a large scope ring, violet and white armor, glowing violet muzzle brake. Left: FRONT view (barrel pointing toward the viewer). Center: SIDE view (barrel pointing left). Right: TOP view looking straight down. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ref3d-tower-siege",
+      "out": "assets/art/ref3d/raw/tower-siege.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Sci-fi siege mortar turret: wide octagonal heavy base, short thick mortar barrel, two round ammunition drums on the sides, orange heat vents and molten glowing muzzle, white and navy armor with gold trim. Left: FRONT view (barrel pointing toward the viewer). Center: SIDE view (barrel pointing left). Right: TOP view looking straight down. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ref3d-tower-intercept",
+      "out": "assets/art/ref3d/raw/tower-intercept.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Sci-fi interceptor launcher pylon: armored hexagonal base with three open docking cradles on top arranged in a triangle, green and white armor, glowing green emitter lenses inside the cradles, cable conduits, gold trim. Left: FRONT view (barrel pointing toward the viewer). Center: SIDE view (barrel pointing left). Right: TOP view looking straight down. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ref3d-guard",
+      "out": "assets/art/ref3d/raw/guard.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Deployed barricade unit for a tower defense game: low hexagonal ground platform with small stabilizing legs, a large translucent green energy shield wall raised on the front, bright green crystal core at the back, white and green armor. Left: FRONT view (shield facing viewer). Center: SIDE view. Right: TOP view. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ref3d-hero",
+      "out": "assets/art/ref3d/raw/hero.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Sci-fi anime hero character (male, early twenties) in a white and navy exosuit with gold trim, long glowing cyan scarf, cyan visor over the eyes, compact energy rifle held at the side. Full body, standing in a relaxed A-pose with arms slightly away from the body, feet together on the ground line. Left: FRONT view. Center: SIDE view (facing left). Right: BACK view. Same character, same scale, three views only. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ref3d-enemy-grunt",
+      "out": "assets/art/ref3d/raw/enemy-grunt.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Small scavenger drone enemy: dark teal hexagonal hull with a single glowing teal eye at the front, two stubby forward claws, battle-worn plating, hovering slightly above the ground. Left: FRONT view (eye facing viewer). Center: SIDE view. Right: TOP view. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ref3d-enemy-runner",
+      "out": "assets/art/ref3d/raw/enemy-runner.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Fast dart-shaped drone enemy: sleek narrow magenta hull like an arrowhead with swept-back fins and a glowing pink engine nozzle at the rear, hovering above the ground. Left: FRONT view. Center: SIDE view (nose pointing left). Right: TOP view. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ref3d-enemy-tank",
+      "out": "assets/art/ref3d/raw/enemy-tank.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Heavy armored enemy cruiser: wide blue-grey angular hull with thick side armor plates, two short sponson guns at the front, glowing blue core in the middle, hovering low above the ground. Left: FRONT view (guns facing viewer). Center: SIDE view. Right: TOP view. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ref3d-enemy-elite",
+      "out": "assets/art/ref3d/raw/enemy-elite.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Elite enemy warship: bulky dark crimson hexagonal hull with four large rotating spike blades around it and a blazing magenta hexagonal core in the center, battle scars, hovering above the ground. Left: FRONT view. Center: SIDE view. Right: TOP view. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ref3d-enemy-boss",
+      "out": "assets/art/ref3d/raw/enemy-boss.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Colossal enemy flagship: dark magenta capital ship with four long swept wing fins, a huge blazing magenta hexagonal core in the middle of the hull, two glowing energy rings orbiting the hull, magenta lightning arcs. Left: FRONT view. Center: SIDE view. Right: TOP view. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ref3d-core",
+      "out": "assets/art/ref3d/raw/core.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Defense core structure: large hexagonal armored base with a towering cyan crystal in the center, glowing cyan energy ring around the base, cables, vents and gold trim. Left: FRONT view. Center: SIDE view. Right: TOP view. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ref3d-spawn-gate",
+      "out": "assets/art/ref3d/raw/spawn-gate.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "prompt": "Background must be a plain flat light grey studio backdrop (#B4B4B4) with a thin horizontal ground line, no stars, no nebula, no scenery, no floor texture, no vignette. Enemy spawn portal: heavy hexagonal metal gate frame standing upright, a swirling magenta energy vortex inside the opening, glowing magenta runes on the rim, two buttress legs. Left: FRONT view (portal facing viewer). Center: SIDE view. Right: TOP view. Orthographic turnaround reference sheet for 3D modeling, THREE views of the SAME object placed side by side on a plain flat light grey backdrop, all three views at identical scale and aligned on a common ground line, no perspective distortion, no dramatic lighting, simple flat cel shading with thin dark outlines, the object fills the sheet, nothing else in frame. Absolutely no text, no letters, no numbers, no labels, no watermark, no arrows, no grid.",
+      "no_global_style": true
+    },
+    {
+      "id": "ui-icon-star",
+      "out": "assets/art/gen/ui/icon-star.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "no_global_style": true,
+      "prompt": "A five-pointed star, bright gold #FFD166 with white highlight and dark navy outline. Game HUD icon asset: a single centered symbol, flat front view, bold thick dark outline, cel-shaded with one flat highlight, no text, no letters, no numbers, no background, no frame, fully transparent background, crisp and readable at 96 pixels, sci-fi anime style."
+    },
+    {
+      "id": "ui-icon-coin",
+      "out": "assets/art/gen/ui/icon-coin.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "no_global_style": true,
+      "prompt": "A round gold coin seen from the front, gold #FFD166 with a small inner ring and a dark navy outline. Game HUD icon asset: a single centered symbol, flat front view, bold thick dark outline, cel-shaded with one flat highlight, no text, no letters, no numbers, no background, no frame, fully transparent background, crisp and readable at 96 pixels, sci-fi anime style."
+    },
+    {
+      "id": "ui-icon-crystal",
+      "out": "assets/art/gen/ui/icon-crystal.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "no_global_style": true,
+      "prompt": "A glowing cyan crystal shard, faceted, cyan #4FF3FF with white core and dark navy outline. Game HUD icon asset: a single centered symbol, flat front view, bold thick dark outline, cel-shaded with one flat highlight, no text, no letters, no numbers, no background, no frame, fully transparent background, crisp and readable at 96 pixels, sci-fi anime style."
+    },
+    {
+      "id": "ui-icon-pause",
+      "out": "assets/art/gen/ui/icon-pause.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "no_global_style": true,
+      "prompt": "Two thick vertical bars side by side, pale cyan white with a dark navy outline, a pause symbol. Game HUD icon asset: a single centered symbol, flat front view, bold thick dark outline, cel-shaded with one flat highlight, no text, no letters, no numbers, no background, no frame, fully transparent background, crisp and readable at 96 pixels, sci-fi anime style."
+    },
+    {
+      "id": "ui-icon-speed",
+      "out": "assets/art/gen/ui/icon-speed.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "no_global_style": true,
+      "prompt": "A double chevron pointing right, pale cyan with a dark navy outline, a fast-forward symbol. Game HUD icon asset: a single centered symbol, flat front view, bold thick dark outline, cel-shaded with one flat highlight, no text, no letters, no numbers, no background, no frame, fully transparent background, crisp and readable at 96 pixels, sci-fi anime style."
+    },
+    {
+      "id": "ui-icon-help",
+      "out": "assets/art/gen/ui/icon-help.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "no_global_style": true,
+      "prompt": "A question mark shape, pale violet with a dark navy outline. Game HUD icon asset: a single centered symbol, flat front view, bold thick dark outline, cel-shaded with one flat highlight, no text, no letters, no numbers, no background, no frame, fully transparent background, crisp and readable at 96 pixels, sci-fi anime style."
+    },
+    {
+      "id": "ui-icon-arrow",
+      "out": "assets/art/gen/ui/icon-arrow.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "no_global_style": true,
+      "prompt": "A thick downward pointing arrow, gold #FFD166 with a dark navy outline. Game HUD icon asset: a single centered symbol, flat front view, bold thick dark outline, cel-shaded with one flat highlight, no text, no letters, no numbers, no background, no frame, fully transparent background, crisp and readable at 96 pixels, sci-fi anime style."
+    },
+    {
+      "id": "ui-icon-book",
+      "out": "assets/art/gen/ui/icon-book.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "no_global_style": true,
+      "prompt": "A closed spellbook seen from the front, gold and violet cover with cyan glowing gemstone, dark navy outline. Game HUD icon asset: a single centered symbol, flat front view, bold thick dark outline, cel-shaded with one flat highlight, no text, no letters, no numbers, no background, no frame, fully transparent background, crisp and readable at 96 pixels, sci-fi anime style."
+    },
+    {
+      "id": "ui-frame-plate",
+      "out": "assets/art/gen/ui/frame-plate.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "no_global_style": true,
+      "prompt": "A wide horizontal HUD plate: rounded rectangle with a thin cyan border line, dark navy glass interior, small corner notches. Game HUD frame asset, front view, centered, symmetric, transparent outside the shape, no text, no icons inside, empty interior, cel-shaded anime sci-fi style, thick uniform border."
+    },
+    {
+      "id": "ui-frame-round",
+      "out": "assets/art/gen/ui/frame-round.png",
+      "size": "1024x1024",
+      "alpha": true,
+      "no_global_style": true,
+      "prompt": "A circular HUD button frame: thick cyan ring with an inner dark navy disc, small notches at the four quadrants. Game HUD frame asset, front view, centered, symmetric, transparent outside the shape, no text, no icons inside, empty interior, cel-shaded anime sci-fi style, thick uniform border."
+    },
+    {
+      "id": "level-map-2",
+      "out": "assets/art/gen/level-map-2.png",
+      "size": "1024x1536",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Top-down orthographic environment art of a sci-fi space station arena deck, portrait framing, filling the whole frame with dark purple hexagonal metal plating and magenta rim lights. One single continuous glowing cyan transit lane, about 6% of the frame width, enters at the top edge slightly left of center, runs straight down, sweeps right in a wide S-curve, doubles back left in a second switchback, then descends and ends at the bottom edge at the exact horizontal center in a large empty circular recessed pad. The lane is marked by bright cyan emissive edge strips and short white dash markings, with a soft cyan glow bleeding onto the deck. Around the lane the deck is empty with a few small cyan ring markers and warning stripes; faint magenta nebula haze at the extreme top and bottom edges. ABSOLUTELY NO portal, no gate, no arch, no crystal, no gem, no orb, no building, no turret, no characters, no vehicles, no text, no UI, no icons. Keep the floor low contrast so small glowing units read clearly on top. Thick dark outlines, flat cel-shaded anime sci-fi shading."
+    },
+    {
+      "id": "level-map-3",
+      "out": "assets/art/gen/level-map-3.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "alpha": false,
+      "no_global_style": true,
+      "prompt": "Top-down orthographic terrain art of a PLANET SURFACE, portrait framing, the whole frame is the ground plane seen straight down. Materials: dark violet basalt rock and dusty regolith with a faint weathered hexagonal survey grid etched into it, scattered fine gravel and shallow impact craters, thin veins of cold cyan crystal glowing softly in the cracks. ONE single continuous glowing cyan supply route, about 6 percent of the frame width, that spirals inward: it enters at the top edge left of center, runs down the left side, curves right across the top third, loops down the right side into a wide outer arc, then spirals inward in two progressively smaller turns, and finally terminates at the exact horizontal center in a wide empty circular landing basin ringed by a low flat rim. The route is a flat compacted lane with bright cyan emissive edge strips and short white dash markings, casting a soft cyan glow onto the surrounding rock. NO structures, NO buildings, NO towers, NO turrets, NO gates, NO portals, NO arches, NO crystals standing upright, NO characters, NO vehicles, NO text, NO UI, NO icons, NO labels, NO arrows. Pure terrain and one glowing route only. Very dark, low contrast rock so small units read clearly on top; muted magenta and teal ambient tint at the frame edges, subtle atmospheric haze. Thick dark outlines, flat cel-shaded anime sci-fi shading."
+    }
+  ]
+}
