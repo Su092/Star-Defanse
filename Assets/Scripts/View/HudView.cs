@@ -62,35 +62,42 @@ namespace StarLane
             var plateBg = new Color(0.06f, 0.05f, 0.14f, 0.82f);
             var plateBorder = new Color(0.42f, 0.36f, 0.72f, 0.75f);
 
-            var namePlate = STUi.Rect(root, "NamePlate", 22f, 22f, 320f, 64f);
+            // 左上一块长信息牌：用 plate-thin（窄条专用素材，装饰带仅 20%），
+            // 而不是 frame-plate —— 后者装饰带占短边一半以上，塞进 72px 高的
+            // 牌子里，九宫格四角会把内容区吃光（文字压在花纹上）。
+            var namePlate = STUi.Rect(root, "NamePlate", 22f, 22f, 320f, 72f);
             var np = namePlate.gameObject.AddComponent<Image>();
-            var npSprite = STAssets.Ui("frame-plate");
+            var npSprite = STAssets.Ui("plate-thin") ?? STAssets.Ui("frame-plate");
             if (npSprite != null) { np.sprite = npSprite; np.type = Image.Type.Sliced; np.color = Color.white; }
             else { np.sprite = STUi.RoundSprite(14, plateBorder, 2); np.type = Image.Type.Sliced; np.color = plateBg; }
             np.raycastTarget = false;
+            STUi.FitSlice(np);
 
             LevelName = STUi.Label(namePlate, "星港回廊", 32, STColors.White, true);
-            STUi.SetRect(LevelName.rectTransform, 26f, 10f, 284f, 46f);
+            STUi.SetRect(LevelName.rectTransform, 40f, 18f, 270f, 44f);
 
-            var wavePlate = MakeSmallPlate(root, "WavePlate", 22f, 94f, 240f, 56f);
-            WaveNum = STUi.Label(wavePlate, "1", 34, STColors.White, true);
-            STUi.SetRect(WaveNum.rectTransform, 34f, 6f, 80f, 46f);
+            // 左上三块信息牌：frame-plate 边距 21，内容区 = 高 - 42。
+            // 原来 56 高只剩 14 高可用，数字和「/ 10 波」全压在上下边框上；
+            // 抬到 72 才有 30 高，够放 30px 字。
+            var wavePlate = MakeSmallPlate(root, "WavePlate", 22f, 94f, 240f, 72f);
+            WaveNum = STUi.Label(wavePlate, "1", 32, STColors.White, true);
+            STUi.SetRect(WaveNum.rectTransform, 34f, 22f, 80f, 40f);
             var waveTail = STUi.Label(wavePlate, "/ 10 波", 22, STColors.Hex("C5BAF5"), true);
-            STUi.SetRect(waveTail.rectTransform, 92f, 16f, 130f, 30f);
+            STUi.SetRect(waveTail.rectTransform, 92f, 28f, 130f, 30f);
 
-            var goldPlate = MakeSmallPlate(root, "GoldPlate", 22f, 158f, 240f, 56f);
+            var goldPlate = MakeSmallPlate(root, "GoldPlate", 22f, 174f, 240f, 72f);
             var coin = STAssets.Ui("icon-coin");
-            if (coin != null) STUi.Picture(goldPlate, coin, 18f, 12f, 34f, 34f);
-            Gold = STUi.Label(goldPlate, "40", 30, STColors.Gold, true);
-            STUi.SetRect(Gold.rectTransform, 60f, 8f, 150f, 40f);
+            if (coin != null) STUi.Picture(goldPlate, coin, 18f, 22f, 30f, 30f);
+            Gold = STUi.Label(goldPlate, "40", 29, STColors.Gold, true);
+            STUi.SetRect(Gold.rectTransform, 58f, 22f, 150f, 38f);
 
             _goldRect = (RectTransform)Gold.transform;
             _goldBaseSize = _goldRect.sizeDelta;
 
             // "+N" 进账提示：叠在金币数字右侧，默认透明/不可见
-            _goldGain = STUi.Label(goldPlate, "", 26, STColors.Hex("FFE58A"), true);
+            _goldGain = STUi.Label(goldPlate, "", 25, STColors.Hex("FFE58A"), true);
             _goldGainRect = (RectTransform)_goldGain.transform;
-            STUi.SetRect(_goldGainRect, 150f, 8f, 110f, 40f);
+            STUi.SetRect(_goldGainRect, 150f, 24f, 110f, 36f);
             _goldGain.text = "";
         }
 
@@ -98,7 +105,9 @@ namespace StarLane
         {
             var rt = STUi.Rect(parent, name, x, y, w, h);
             var img = rt.gameObject.AddComponent<Image>();
-            var sprite = STAssets.Ui("frame-plate");
+            // plate-thin 专为窄条信息牌设计（装饰带仅占短边 20%），
+            // frame-plate 的装饰带过半，放在 72px 高的牌子上会吃掉内容区。
+            var sprite = STAssets.Ui("plate-thin") ?? STAssets.Ui("frame-plate");
             if (sprite != null) { img.sprite = sprite; img.type = Image.Type.Sliced; img.color = Color.white; }
             else
             {
@@ -107,6 +116,7 @@ namespace StarLane
                 img.color = new Color(0.04f, 0.03f, 0.1f, 0.86f);
             }
             img.raycastTarget = false;
+            STUi.FitSlice(img);
             return rt;
         }
 
@@ -175,15 +185,19 @@ namespace StarLane
             var upgrade = STUi.BigButton(root, "强化", "3 选 1 词条", STColors.Gold, 26f, 1700f, 300f, 148f);
             UpgradeButton = upgrade;
 
+            // 成本行贴着按钮底部内沿排（不能写死 y=104：按钮高 148、边距 32，
+            // 内容区底边在 y=116，104+28 会压到下边框上）
+            var upImg = upgrade.GetComponent<Image>();
+            float upBottom = 148f - Mathf.Max(STUi.SliceInsetY(upImg, 300f, 148f), 18f) - 26f;
             var coin = STAssets.Ui("icon-coin");
-            if (coin != null) STUi.Picture(upgrade.transform, coin, 22f, 104f, 28f, 28f);
-            UpgradeCost = STUi.Label(upgrade.transform, "24", 28, STColors.Gold, true);
-            STUi.SetRect(UpgradeCost.rectTransform, 52f, 100f, 140f, 34f);
+            if (coin != null) STUi.Picture(upgrade.transform, coin, 40f, upBottom, 26f, 26f);
+            UpgradeCost = STUi.Label(upgrade.transform, "24", 26, STColors.Gold, true);
+            STUi.SetRect(UpgradeCost.rectTransform, 72f, upBottom - 3f, 140f, 32f);
 
-            // 核心耐久
-            var corePanel = STUi.Rect(root, "CorePanel", 356f, 1700f, 330f, 66f);
+            // 核心耐久：用 plate-thin（窄条素材），装饰带 20%，内容区够放三层
+            var corePanel = STUi.Rect(root, "CorePanel", 356f, 1688f, 330f, 100f);
             var coreImg = corePanel.gameObject.AddComponent<Image>();
-            var coreSprite = STAssets.Ui("frame-plate");
+            var coreSprite = STAssets.Ui("plate-thin") ?? STAssets.Ui("frame-plate");
             if (coreSprite != null) { coreImg.sprite = coreSprite; coreImg.type = Image.Type.Sliced; coreImg.color = Color.white; }
             else
             {
@@ -192,14 +206,23 @@ namespace StarLane
                 coreImg.color = new Color(0.04f, 0.03f, 0.1f, 0.9f);
             }
             coreImg.raycastTarget = false;
+            STUi.FitSlice(coreImg);
+
+            // 内容区（按实测 inset 排布，而不是猜坐标）
+            float cIns = STUi.SliceInsetY(coreImg, 330f, 100f);
+            float cTop = cIns + 2f;
+            float cBot = 100f - cIns - 2f;
+            float cH = cBot - cTop;
 
             var crystal = STAssets.Ui("icon-crystal");
-            if (crystal != null) STUi.Picture(corePanel, crystal, 8f, 16f, 32f, 32f);
+            if (crystal != null) STUi.Picture(corePanel, crystal, Mathf.Max(cIns, 10f), cTop, 28f, 28f);
 
-            var coreLabel = STUi.Label(corePanel, "核心", 18, STColors.Hex("9FD8E8"), true);
-            STUi.SetRect(coreLabel.rectTransform, 46f, 8f, 80f, 24f);
+            var coreLabel = STUi.Label(corePanel, "核心", 19, STColors.Hex("9FD8E8"), true);
+            STUi.SetRect(coreLabel.rectTransform, Mathf.Max(cIns, 10f) + 36f, cTop, 80f, 26f);
 
-            var barBg = STUi.Rect(corePanel, "BarBg", 46f, 36f, 200f, 18f);
+            // 进度条横贯内容区，数字右侧对齐
+            var barBg = STUi.Rect(corePanel, "BarBg", Mathf.Max(cIns, 10f) + 36f, cTop + cH - 30f,
+                                  330f - Mathf.Max(cIns, 10f) * 2f - 66f, 24f);
             var barImg = barBg.gameObject.AddComponent<Image>();
             var barSprite = STAssets.Ui("bar");
             if (barSprite != null) { barImg.sprite = barSprite; barImg.type = Image.Type.Sliced; barImg.color = Color.white; }
@@ -210,14 +233,19 @@ namespace StarLane
                 barImg.color = new Color(0.04f, 0.03f, 0.1f, 0.9f);
             }
             barImg.raycastTarget = false;
+            STUi.FitSlice(barImg);
 
-            var fill = STUi.Solid(corePanel, STColors.Cyan, 48f, 38f, 196f, 14f);
-            fill.sprite = STUi.RoundSprite(6, Color.clear, 0);
+            // 填充条内缩 2px，位置跟随容器
+            var fill = STUi.Solid(corePanel, STColors.Cyan,
+                Mathf.Max(cIns, 10f) + 38f, cTop + cH - 28f,
+                330f - Mathf.Max(cIns, 10f) * 2f - 70f, 20f);
+            fill.sprite = STUi.RoundSprite(8, Color.clear, 0);
             fill.type = Image.Type.Sliced;
             CoreFill = fill;
 
+            // 数字放在内容区右侧
             CoreNum = STUi.LabelRight(corePanel, "20", 24, STColors.White, true);
-            STUi.SetRect(CoreNum.rectTransform, 252f, 30f, 66f, 32f);
+            STUi.SetRect(CoreNum.rectTransform, 330f - Mathf.Max(cIns, 10f) - 62f, cTop + cH - 32f, 56f, 28f);
 
             // 召唤大按钮
             var summon = STUi.RoundButton(root, new Vector2(954f, 1760f), 88f, STColors.Cyan, "", "", 0);

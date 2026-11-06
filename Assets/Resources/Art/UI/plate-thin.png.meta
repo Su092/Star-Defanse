@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 886ee00839ee67145a353ef62bc5338f
+guid: 87a22b5225506714db403a0e935e5758
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7420452862462771561
-    second: level-map-1-raw_0
+      213: 5116320037944063720
+    second: plate-thin_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 35.2, y: 35.2, z: 35.2, w: 35.2}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -74,10 +74,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: level-map-1-raw_0
+      name: plate-thin_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1152
-        height: 2048
+        width: 512
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79e3064df61450990800000000000000
-      internalID: -7420452862462771561
+      spriteID: 8e67ed297f1d00740800000000000000
+      internalID: 5116320037944063720
       vertices: []
       indices: 
       edges: []

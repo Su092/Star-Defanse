@@ -50,17 +50,33 @@
 
 ### 九宫格（`Art/UI/`）
 
+> **边距规则**：`spriteBorder = 贴图短边 × 0.22`，由 `STBuild.FixUiBorders`
+> 在每次资源校验时自动写入。运行时 `STUi.FitSlice` 再把四角按
+> 「素材短边 ↔ 控件短边」等比缩放，所以同一张素材在 968px 弹窗和
+> 72px 信息牌上都不会被压扁，切角永远是 45°。
+>
+> **为什么不用逐边实测**：这批素材有硬边阴影分界，自动判据会把整块内胆
+> 误判成装饰（实测四个边都顶到 45% 上限）。固定比例 + 运行时等比缩放
+> 是唯一稳定的组合。
+
 | id | 尺寸 | 边距 | 用途 |
 | --- | --- | --- | --- |
-| panel | 512×493 | 44 | 通用面板（弹窗、卡片底） |
-| panel-gold | 512×429 | 44 | 金色强调面板（结算胜利） |
-| button-primary | 220×62 | 22 | 主按钮（青色） |
-| button-gold | 220×53 | 18 | 金按钮（召唤/强化） |
-| chip | 256×97 | 36 | 词条胶囊 |
-| bar | 512×112 | 26 | 耐久条底槽 |
-| card | 374×512 | 36 | 干员卡竖幅 |
-| frame-plate | 512×172 | 36 | 信息牌（关卡名/波次/金币） |
+| panel | 542×302 | 66 | 通用面板（弹窗、卡片底） |
+| panel-gold | 608×428 | 94 | 金色强调面板（结算胜利） |
+| button-primary | 609×141 | 31 | 主按钮（青色） |
+| button-gold | 722×198 | 44 | 金按钮（召唤/强化） |
+| chip | 530×138 | 30 | 词条胶囊 |
+| bar | 540×77 | 17 | 耐久条底槽 |
+| card | 417×579 | 92 | 干员卡竖幅 |
+| frame-plate | 554×161 | 35 | 大幅信息牌 |
+| **plate-thin** | 512×160 | 32 | **窄条信息牌专用**（HUD 左上三块、核心耐久） |
 | frame-round | 512×503 | — | 圆形按钮外框 |
+
+**`plate-thin` 为什么单独做一张**：`frame-plate` 的装饰带（切角 + 45° 玻璃反光
++ 端头凹槽）实测占短边一半以上。九宫格四角是 1:1 绘制的，塞进 72px 高的
+HUD 信息牌时只有两种结局 —— 要么四角之和超过高度被 Unity 强行压缩（整块压扁），
+要么边距吃掉一半内容区（文字压在花纹上）。`plate-thin` 把装饰带控制在 20%，
+内容区 448×96 足够放 30px 字。生成脚本：`python tools/make_plate_thin.py`。
 
 ### 图标（`Art/UI/`，透明背景）
 
@@ -112,12 +128,30 @@ python .cursor/skills/apimart-image/scripts/apimart_image.py \
   --manifest tools/ui-redesign.json      # 生成（1254² 原始）
 python tools/ui_reset_meta.py            # 删 .meta 强制重导入
 python tools/ui_shrink.py                # 压到 512/256
+python tools/make_plate_thin.py          # 生成窄条信息牌 plate-thin
 ```
 
 `ui_reset_meta.py` 必须跑：`AssetPostprocessor` 只在**首次导入**生效，
 已存在的 `.meta` 会让 Unity 沿用旧的像素边距，导致九宫格切错。
 删除 `.meta` 安全——这些贴图都靠 `Resources.Load<Sprite>("Art/UI/xxx")`
 按名字加载，不依赖 GUID。
+
+生成后跑一次资源校验，会自动把九宫格边距写成「短边 × 0.22」：
+
+```
+powershell -ExecutionPolicy Bypass -File scripts/check.ps1 -Task verify
+```
+
+### 九宫格自检
+
+`ST.exe -autoshot` 会遍历所有激活界面的 Sliced Image，输出两行结果：
+
+```
+UI SLICE n/n    四边之和 < 控件尺寸（否则 Unity 会强行压缩 → 整块压扁）
+UI TEXT  n/n    文字字形框落在内容区内（否则文字压在切角/高光上）
+```
+
+改布局或换素材后这两行必须全绿，否则就是用户反馈的「UI 被压缩」。
 
 ## 提示词模板
 

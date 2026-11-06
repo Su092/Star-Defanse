@@ -177,7 +177,14 @@ namespace StarLane
             return rt.gameObject.AddComponent<RectMask2D>();
         }
 
-        /// <summary>九宫格素材（Sliced）。缺失时返回 null，调用方自行退回纯色。</summary>
+        /// <summary>
+        /// 九宫格素材（Sliced）。缺失时返回 null，调用方自行退回纯色。
+        ///
+        /// 自动按控件尺寸适配四角（见 <see cref="FitSlice"/>），保证：
+        ///   · 四边之和永远小于控件尺寸 —— 不会触发 Unity 的强制压缩；
+        ///   · 四角按素材原始比例落在控件里 —— 小控件上的边框自动收细，
+        ///     不会把中间的内容区挤掉。
+        /// </summary>
         public static Image NineSlice(Transform parent, string key, float x, float y, float w, float h,
             Color? tint = null, bool fill = false)
         {
@@ -185,7 +192,93 @@ namespace StarLane
             if (sprite == null) return null;
             var img = Picture(parent, sprite, x, y, w, h, Image.Type.Sliced, tint);
             if (fill) Stretch(img.rectTransform);
+            FitSlice(img);
             return img;
+        }
+
+        /// <summary>
+        /// 让 Sliced Image 的四角在任意控件尺寸下都合理。
+        ///
+        /// Unity 的规则（com.unity.ugui Image.GenerateSlicedSprite）：
+        ///   四角在 UI 空间的尺寸 = spriteBorder / (spritePPU / canvasPPU) / pixelsPerUnitMultiplier；
+        ///   若同轴两片之和 > 控件尺寸，GetAdjustedBorders 会强行等比压缩 → 整块图被压扁。
+        ///
+        /// 所以这里按「素材短边 ↔ 控件短边」等比缩放四角：
+        ///   大面板（968×980）四角保持原比例，小信息牌（240×56）四角自动缩到 1/3，
+        /// 内容区永远留得下，装饰也不会被抹开。
+        /// 注意只在 Sliced/Tiled 且确有 border 时生效，其余类型直接跳过。
+        /// </summary>
+        public static void FitSlice(Image img)
+        {
+            if (img == null) return;
+            if (ApplySlice(img) && Application.isPlaying) AttachTracker(img);
+        }
+
+        /// <summary>真正的几何计算；返回 true 表示已按尺寸完成校准。</summary>
+        internal static bool ApplySlice(Image img)
+        {
+            if (img == null) return false;
+            if (img.type != Image.Type.Sliced && img.type != Image.Type.Tiled) return false;
+
+            var sp = img.sprite;
+            if (sp == null) return false;
+
+            var b = sp.border;
+            if (b.x <= 0f && b.y <= 0f && b.z <= 0f && b.w <= 0f) return false;
+
+            // 控件尺寸（未布局时 rect 可能为 0，退回 sizeDelta）
+            var rt = img.rectTransform;
+            var size = rt.rect.size;
+            if (size.x < 1f || size.y < 1f) size = rt.sizeDelta;
+            if (size.x < 1f || size.y < 1f) return false;   // 布局还没跑，留给跟踪器
+
+            float shortDst = Mathf.Min(size.x, size.y);
+            if (shortDst < 1f) return false;
+
+            // 四角在控件里占的比例 = 在素材里占的比例（保持切角 45° 不变形）。
+            //   cornerSrc / shortSrc == cornerDst / shortDst
+            //   cornerDst = cornerSrc / mppu   =>   mppu = shortSrc / shortDst
+            float baseMult = SliceBaseMultiplier(sp, shortDst);
+
+            // 两条硬约束：
+            //  1. 四边之和必须小于控件尺寸，否则 GetAdjustedBorders 强行压缩（压扁）；
+            //  2. 内容区（去掉四角后的中间部分）至少占短边的 MIN_CONTENT，
+            //     否则文字没地方放 —— 这是「该显示的信息被挤压」的另一半原因。
+            float needX = (b.x + b.z) / Mathf.Max(1f, size.x * 0.98f);
+            float needY = (b.w + b.y) / Mathf.Max(1f, size.y * 0.98f);
+
+            // 约束 2：让两侧四角之和 <= 短边 × (1 - MIN_CONTENT)
+            float maxCorner = Mathf.Max(Mathf.Max(b.x, b.z), Mathf.Max(b.w, b.y));
+            float needContent = (2f * maxCorner) / Mathf.Max(1f, shortDst * (1f - MinContent));
+
+            float mult = Mathf.Max(baseMult, Mathf.Max(needX, Mathf.Max(needY, needContent)));
+            img.pixelsPerUnitMultiplier = Mathf.Clamp(mult, 1f, 12f);
+            return true;
+        }
+
+        /// <summary>内容区至少要占控件短边的比例（低于它文字会被边框挤掉）。</summary>
+        private const float MinContent = 0.45f;
+
+        /// <summary>按素材比例算出的四角缩放倍数（四角占短边比例保持不变）。</summary>
+        private static float SliceBaseMultiplier(Sprite sp, float shortDst)
+        {
+            float shortSrc = Mathf.Min(sp.rect.width, sp.rect.height);
+            if (shortSrc < 1f || shortDst < 1f) return 1f;
+            return shortSrc / shortDst;
+        }
+
+        /// <summary>给 Image 挂尺寸跟踪器：父级布局改变尺寸后重新校准四角。</summary>
+        private static void AttachTracker(Image img)
+        {
+            if (img == null || !Application.isPlaying) return;
+            if (img.GetComponent<STSliceFit>() == null) img.gameObject.AddComponent<STSliceFit>();
+        }
+
+        /// <summary>对容器下所有 Sliced/Tiled Image 应用 <see cref="FitSlice"/>（布局完成后调用）。</summary>
+        public static void FitSliceAll(Transform root)
+        {
+            if (root == null) return;
+            foreach (var img in root.GetComponentsInChildren<Image>(true)) FitSlice(img);
         }
 
         /// <summary>面板：优先九宫格，退回圆角纯色。</summary>
@@ -349,6 +442,7 @@ namespace StarLane
                 bg.type = Image.Type.Sliced;
                 bg.color = new Color(0.035f, 0.052f, 0.095f, 1f);
             }
+            FitSlice(bg);
             btn.targetGraphic = bg;
 
             var colors = btn.colors;
@@ -360,16 +454,66 @@ namespace StarLane
             colors.fadeDuration = 0.08f;
             btn.colors = colors;
 
-            float titleY = sub.Length > 0 ? h * 0.5f - 46f : h * 0.5f - 26f;
-            var t = Label(rt, title, 40, STColors.White, true);
-            SetRect(t.rectTransform, 40f, titleY, w - 80f, 54f);
+            // 文字按**九宫格内容区**排布（去掉四角后剩下的中间部分），
+            // 不能按控件高度做绝对偏移：按钮高 112–148、四角各占 18–32，
+            // 内容区只剩 48–84，原来的 h*0.5±46 会让副标题压到下边框上。
+            float insetX = SliceInsetX(bg, w, h);
+            float insetY = SliceInsetY(bg, w, h);
+            float padX = Mathf.Max(insetX + 8f, 24f);      // 左右还要留出视觉呼吸
+            float availH = Mathf.Max(24f, h - insetY * 2f);
+
+            float subH = sub.Length > 0 ? 24f : 0f;
+            float gap = sub.Length > 0 ? 4f : 0f;
+            // 标题字号自适应：内容区放不下 40px 就按比例缩小（112 高的按钮约 34px）
+            float titleSize = Mathf.Min(40f, (availH - gap - subH) / 1.35f);
+            titleSize = Mathf.Max(20f, titleSize);
+            float titleH = titleSize * 1.35f;
+
+            float blockH = titleH + gap + subH;
+            float top = Mathf.Max(insetY, (h - blockH) * 0.5f);
+
+            var t = Label(rt, title, Mathf.RoundToInt(titleSize), STColors.White, true);
+            t.alignment = TextAnchor.MiddleCenter;
+            SetRect(t.rectTransform, padX, top, w - padX * 2f, titleH);
 
             if (sub.Length > 0)
             {
                 var s = Label(rt, sub, 18, STColors.Hex("A79CD6"));
-                SetRect(s.rectTransform, 40f, h * 0.5f + 6f, w - 80f, 26f);
+                s.alignment = TextAnchor.MiddleCenter;
+                SetRect(s.rectTransform, padX, top + titleH + gap, w - padX * 2f, subH);
             }
             return btn;
+        }
+
+        /// <summary>
+        /// 九宫格在横向实际占用的四角宽度（控件坐标系）。
+        /// 用于把文字排进内容区，避免压在切角/高光带上。
+        /// </summary>
+        public static float SliceInsetX(Image img, float w, float h) => SliceInset(img, w, h, true);
+
+        public static float SliceInsetY(Image img, float w, float h) => SliceInset(img, w, h, false);
+
+        private static float SliceInset(Image img, float w, float h, bool horizontal)
+        {
+            if (img == null || img.sprite == null) return 0f;
+            var b = img.sprite.border;
+            if (b.x <= 0f && b.y <= 0f && b.z <= 0f && b.w <= 0f) return 0f;
+
+            float ppu = img.sprite.pixelsPerUnit
+                      / (img.canvas != null ? img.canvas.referencePixelsPerUnit : 100f);
+            float mppu = ppu * Mathf.Max(0.01f, img.pixelsPerUnitMultiplier);
+            if (mppu <= 0.0001f) return 0f;
+
+            // 与引擎一致：四边和超尺寸时会被等比压缩，这里同步压缩后的值
+            float a = horizontal ? b.x / mppu : b.w / mppu;
+            float c = horizontal ? b.z / mppu : b.y / mppu;
+            float dim = horizontal ? w : h;
+            if (a + c >= dim && a + c > 0f)
+            {
+                float k = dim / (a + c);
+                a *= k; c *= k;
+            }
+            return Mathf.Max(a, c);
         }
 
         /// <summary>小工具按钮（返回，取消等）。</summary>

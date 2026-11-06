@@ -24,6 +24,7 @@ namespace StarLane.EditorTools
             Lines.Clear();
 
             STData.Load();
+            FixUiBorders();          // 顺带校准九宫格边距（幂等，仅写 spriteBorder）
             CheckData();
             CheckSprites();
             CheckModels();
@@ -33,6 +34,55 @@ namespace StarLane.EditorTools
             Lines.Add(_fail == 0 ? "RESULT 资源校验通过" : $"RESULT 资源校验失败 {_fail} 项");
             STSetup.WriteLog("verify.log", Lines);
             STSetup.Finish(_fail == 0 ? 0 : 1);
+        }
+
+        /// <summary>
+        /// 校准 UI 九宫格边距（幂等）。
+        ///
+        /// 边距 = 贴图短边 × 0.22，依据见 STUiBorders 的注释。这里挂在资源校验里
+        /// 一起跑，避免依赖单独的 executeMethod 入口（那条路径在 batchmode 下
+        /// 偶发解析不到类）。
+        /// </summary>
+        private static void FixUiBorders()
+        {
+            const string dir = "Assets/Resources/Art/UI";
+            string[] names =
+            {
+                "panel", "panel-gold", "frame-plate", "card",
+                "button-primary", "button-gold", "chip", "bar",
+                "plate-thin",
+            };
+
+            int fixedCount = 0;
+            foreach (var n in names)
+            {
+                var importer = AssetImporter.GetAtPath($"{dir}/{n}.png") as TextureImporter;
+                if (importer == null) continue;
+
+                importer.GetSourceTextureWidthAndHeight(out int w, out int h);
+                float shortSide = Mathf.Min(w, h);
+                float m = Mathf.Min(shortSide * 0.22f, shortSide * 0.45f);
+                var want = new Vector4(m, m, m, m);
+
+                // 一致就跳过，避免每次都触发重新导入（打包会变慢）
+                if ((importer.spriteBorder - want).sqrMagnitude < 0.01f) continue;
+
+                importer.spriteBorder = want;
+                importer.spritePixelsPerUnit = 100f;
+                importer.filterMode = FilterMode.Bilinear;
+                importer.textureCompression = TextureImporterCompression.Uncompressed;
+                importer.mipmapEnabled = false;
+                importer.wrapMode = TextureWrapMode.Clamp;
+                importer.alphaIsTransparency = true;
+                importer.SaveAndReimport();
+                fixedCount++;
+            }
+
+            if (fixedCount > 0)
+            {
+                AssetDatabase.Refresh();
+                Debug.Log($"[ST] 九宫格边距已校准 {fixedCount} 张");
+            }
         }
 
         private static void Check(string name, bool ok, string detail = null)
@@ -98,6 +148,7 @@ namespace StarLane.EditorTools
             string[] ui =
             {
                 "panel", "panel-gold", "button-primary", "button-gold", "chip", "bar", "card",
+                "plate-thin",
                 "icon-star", "icon-coin", "icon-crystal", "icon-pause", "icon-speed", "icon-help",
                 "icon-arrow", "icon-book", "frame-plate", "frame-round",
             };

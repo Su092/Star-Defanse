@@ -54,32 +54,38 @@ namespace StarLane.EditorTools
         // Unity 的 Sliced 依赖 spriteBorder，未设置时会退化成拉伸（边框被拉变形）。
         // 注意：AssetPostprocessor 对已导入的资源不会重跑，批量设置见 STUiBorders.FixAll。
         //
-        // 边距按**比例**给出（占贴图短边的百分比），不写死像素：
-        // 素材可能以 512/1024/1254 等不同分辨率生成，写死像素会导致边框拉变形。
-        private static readonly System.Collections.Generic.Dictionary<string, float> BorderRatio =
-            new System.Collections.Generic.Dictionary<string, float>
-            {
-                { "panel", 0.086f },
-                { "panel-gold", 0.086f },
-                { "frame-plate", 0.070f },
-                { "card", 0.070f },
-                { "button-primary", 0.043f },
-                { "button-gold", 0.036f },
-                { "chip", 0.070f },
-                { "bar", 0.051f },
-            };
+        // 边距 = 贴图短边 × RATIO，再按「四角之和必须小于尺寸」收紧。
+        //
+        // 为什么是固定比例而不是逐边实测：这批素材是「切角 + 45°玻璃反光 +
+        // 端头凹槽 + 硬边阴影分界」的赛璐璐风格，内部的硬边阴影会制造一条
+        // 横向分界，导致「与内胆基色不同」的自动判据把整块内胆都算成装饰
+        // （实测四个边全部顶到 45% 上限），自动检测在这里不可靠。
+        //
+        // 正确的保证来自运行时 STUi.FitSlice：四角按「素材短边 ↔ 控件短边」
+        // 等比缩放，切角永远是 45°；比例只要够覆盖装饰带即可。
+        // RATIO = 0.22 时内容区保留 56% 短边，实测装饰带约 20~45%，配合
+        // FitSlice 的收缩，小控件上边框会自动变细、不会挤掉内容。
+        private const float BorderRatio = 0.22f;
 
         private static void ApplyBorder(TextureImporter importer, string path)
         {
             var name = System.IO.Path.GetFileNameWithoutExtension(path);
-            if (!BorderRatio.TryGetValue(name, out var ratio)) return;
+            if (!BorderNames.Contains(name)) return;
 
-            // 边距不能超过贴图短边的一半，否则九宫格会重叠
             importer.GetSourceTextureWidthAndHeight(out int w, out int h);
             float shortSide = Mathf.Min(w, h);
-            float m = Mathf.Min(shortSide * ratio, shortSide * 0.45f);
+            // 边距不能超过短边的一半，否则九宫格左右/上下会重叠
+            float m = Mathf.Min(shortSide * BorderRatio, shortSide * 0.45f);
             importer.spriteBorder = new Vector4(m, m, m, m);
         }
+
+        private static readonly System.Collections.Generic.HashSet<string> BorderNames =
+            new System.Collections.Generic.HashSet<string>
+            {
+                "panel", "panel-gold", "frame-plate", "card",
+                "button-primary", "button-gold", "chip", "bar",
+                "plate-thin",
+            };
 
         private void OnPreprocessModel()
         {

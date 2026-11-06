@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 UI = ROOT / "Assets" / "Resources" / "Art" / "UI"
 
 # 九宫格：短边 512
+# plate-thin 由 tools/make_plate_thin.py 直接生成到目标尺寸，不经过这里缩放
 FRAMES = ["panel", "panel-gold", "button-primary", "button-gold",
           "chip", "bar", "card", "frame-plate", "frame-round"]
 

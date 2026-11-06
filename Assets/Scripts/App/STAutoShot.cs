@@ -56,18 +56,22 @@ namespace StarLane
         private IEnumerator RunShots()
         {
             yield return Shot("01-menu");
+            CheckNineSlice();
 
             _main.ShowLevels();
             yield return new WaitForSecondsRealtime(0.35f);
             yield return Shot("02-levels");
+            CheckNineSlice();
 
             _main.ShowFormation(STMode.Levels);
             yield return new WaitForSecondsRealtime(0.35f);
             yield return Shot("03-formation");
+            CheckNineSlice();
 
             _main.StartLevel(1);
             yield return new WaitForSecondsRealtime(0.7f);
             yield return Shot("04-battle-start");
+            CheckNineSlice();
 
             for (int i = 0; i < 4; i++)
             {
@@ -89,6 +93,7 @@ namespace StarLane
             _main.OnUpgrade();
             yield return new WaitForSecondsRealtime(0.45f);
             yield return Shot("07-affix-modal");
+            CheckNineSlice();
 
             if (_main.Run.PendingChoices.Count > 0) PickFirstChoice();
             yield return new WaitForSecondsRealtime(0.1f);
@@ -361,6 +366,11 @@ namespace StarLane
             // 8) 金币飘字必须真的能画出来
             //    （贴图烘焙曾因 cam.cullingMask=0 一直全透明，界面上毫无察觉）
             CheckFloatText();
+
+            // 9) 九宫格不许压缩、文字不许越出内容区
+            //    （spriteBorder 曾按「短边百分比」算，把透明留白当边框，
+            //      frame-plate 得到 102px 边距塞进 56px 高的信息牌，整块被压扁）
+            CheckNineSlice();
         }
 
         private void CheckFloatText()
@@ -477,6 +487,171 @@ namespace StarLane
             load.Invoke(_main, null);
 
             Debug.Log($"SAVE RESULT {2 - fail}/2");
+        }
+
+        // ---------------------------------------------------------------- 九宫格自检
+        /// <summary>
+        /// 九宫格必须「不压缩、不吃内容」。
+        ///
+        /// 两条判据都直接来自 com.unity.ugui 的 Image.GenerateSlicedSprite：
+        ///   1. 四边之和 &lt; 控件尺寸 —— 否则 GetAdjustedBorders 会强行等比压缩，
+        ///      整块图连同切角被压扁（用户反馈的「UI 被压缩」就是这一条）；
+        ///   2. 文字的实际字形框落在内容区内 —— 落在四角上就是「压在边框花纹里」，
+        ///      也就是「该显示的信息没被完整显示」。
+        ///
+        /// 注意九宫格本身不裁剪子物体，所以判据 2 要量**字形**（preferredSize
+        /// 按对齐方式摆放后的框），而不是字控件的 RectTransform —— 后者常被
+        /// 故意留得比字形大，按它判会大量误报。
+        /// </summary>
+        private void CheckNineSlice()
+        {
+            int imgCount = 0, imgFail = 0, textCount = 0, textFail = 0;
+            var roots = new List<Transform>();
+            foreach (var canvas in Resources.FindObjectsOfTypeAll<Canvas>())
+            {
+                if (canvas == null || !canvas.isActiveAndEnabled) continue;
+                if (!canvas.gameObject.scene.IsValid()) continue;
+                roots.Add(canvas.transform);
+            }
+
+            foreach (var root in roots)
+            {
+                foreach (var img in root.GetComponentsInChildren<Image>(true))
+                {
+                    if (img == null || !img.isActiveAndEnabled) continue;
+                    if (img.type != Image.Type.Sliced) continue;
+                    var sp = img.sprite;
+                    if (sp == null || !IsArtSlice(sp)) continue;
+                    var b = sp.border;
+                    if (b.x <= 0f && b.y <= 0f && b.z <= 0f && b.w <= 0f) continue;
+
+                    // 注意 pivot 为 (0,1) 时 rect 是 x:0..w, y:-h..0，不能按中心原点算
+                    var rect = img.rectTransform.rect;
+                    if (rect.width < 1f || rect.height < 1f) continue;
+                    imgCount++;
+
+                    // 实际四角尺寸（与引擎同一公式：border / multipliedPPU）
+                    float ppu = sp.pixelsPerUnit / (img.canvas != null ? img.canvas.referencePixelsPerUnit : 100f);
+                    float mppu = ppu * Mathf.Max(0.01f, img.pixelsPerUnitMultiplier);
+                    float bl = b.x / mppu, br = b.z / mppu, bt = b.w / mppu, bb = b.y / mppu;
+
+                    // (1) 不许压缩：两片之和必须严格小于尺寸
+                    if (bl + br >= rect.width + 0.5f || bt + bb >= rect.height + 0.5f)
+                    {
+                        imgFail++;
+                        Debug.Log($"FAIL  slice: {Path(img)} 四边和被压缩 " +
+                                  $"({bl + br:F0}/{rect.width:F0}, {bt + bb:F0}/{rect.height:F0}) " +
+                                  $"border={b} mppu={mppu:F2}");
+                        continue;
+                    }
+
+                    // 内容区（去掉四角后剩下的中间九分之一）
+                    var cb = new Rect(rect.xMin + bl, rect.yMin + bb,
+                                      rect.width - bl - br, rect.height - bt - bb);
+
+                    // (2) 字形框必须落在内容区内。
+                    //     只检查「最近的九宫格祖先就是自己」的文字 —— 否则外层大面板
+                    //     会把嵌套卡片里的文字也算进来，按大面板的内容区判定必然误报。
+                    foreach (var t in img.GetComponentsInChildren<Text>(true))
+                    {
+                        if (t == null || !t.isActiveAndEnabled || string.IsNullOrEmpty(t.text)) continue;
+                        if (NearestSlicer(t.transform, img.transform) != img.transform) continue;
+                        textCount++;
+
+                        var glyph = GlyphBox(t, img.rectTransform);
+                        const float slack = 2.5f;
+                        if (glyph.xMin < cb.xMin - slack || glyph.xMax > cb.xMax + slack ||
+                            glyph.yMin < cb.yMin - slack || glyph.yMax > cb.yMax + slack)
+                        {
+                            textFail++;
+                            Debug.Log($"FAIL  text: {Path(t)}「{Trim(t.text)}」压在边框上 " +
+                                      $"字形[{glyph.xMin:F0},{glyph.yMin:F0} {glyph.width:F0}x{glyph.height:F0}] " +
+                                      $"内容[{cb.xMin:F0},{cb.yMin:F0} {cb.width:F0}x{cb.height:F0}]");
+                        }
+                    }
+                }
+            }
+
+            Debug.Log($"UI SLICE {imgCount - imgFail}/{imgCount}");
+            Debug.Log($"UI TEXT {textCount - textFail}/{textCount}");
+        }
+
+        /// <summary>算出文字真实字形的包围盒，坐标换到 owner 的局部空间。</summary>
+        private static Rect GlyphBox(Text t, RectTransform owner)
+        {
+            var tr = t.rectTransform;
+            float w = Mathf.Min(t.preferredWidth, tr.rect.width);
+            float h = Mathf.Min(t.preferredHeight, tr.rect.height);
+            if (w <= 0f || h <= 0f) return new Rect(0f, 0f, 0f, 0f);
+
+            // 注意 Unity 的 rect：pivot(0,1) 时 y 从 -h 到 0，yMax 才是「上边」。
+            // 水平：Left 靠 xMin，Center 居中，Right 靠 xMax。
+            // 垂直：Upper 靠 yMax 往下排，Middle 居中，Lower 靠 yMin 往上排。
+            bool left = t.alignment == TextAnchor.UpperLeft
+                     || t.alignment == TextAnchor.MiddleLeft
+                     || t.alignment == TextAnchor.LowerLeft;
+            bool right = t.alignment == TextAnchor.UpperRight
+                      || t.alignment == TextAnchor.MiddleRight
+                      || t.alignment == TextAnchor.LowerRight;
+            bool upper = t.alignment == TextAnchor.UpperLeft
+                      || t.alignment == TextAnchor.UpperCenter
+                      || t.alignment == TextAnchor.UpperRight;
+            bool lower = t.alignment == TextAnchor.LowerLeft
+                      || t.alignment == TextAnchor.LowerCenter
+                      || t.alignment == TextAnchor.LowerRight;
+
+            float x = left ? tr.rect.xMin : (right ? tr.rect.xMax - w : tr.rect.center.x - w * 0.5f);
+            float y = upper ? tr.rect.yMax - h : (lower ? tr.rect.yMin : tr.rect.center.y - h * 0.5f);
+
+            // 角落点 -> owner 局部
+            Vector2 a = owner.InverseTransformPoint(tr.TransformPoint(new Vector2(x, y)));
+            Vector2 c = owner.InverseTransformPoint(tr.TransformPoint(new Vector2(x + w, y + h)));
+            return Rect.MinMaxRect(Mathf.Min(a.x, c.x), Mathf.Min(a.y, c.y),
+                                   Mathf.Max(a.x, c.x), Mathf.Max(a.y, c.y));
+        }
+
+        private static string Trim(string s) => s.Length <= 10 ? s : s.Substring(0, 10) + "…";
+
+        /// <summary>
+        /// 是否 Resources/Art/UI 下的装饰素材（需要严格九宫格）。
+        /// 代码生成的圆角精灵（st-round-*）靠 border 缩成胶囊，不属于这一类。
+        /// </summary>
+        /// <summary>从 t 向上找最近的、带装饰九宫格边距的 Image；找不到返回 null。</summary>
+        private static Transform NearestSlicer(Transform t, Transform stopAt)
+        {
+            var cur = t;
+            while (cur != null)
+            {
+                var im = cur.GetComponent<Image>();
+                if (im != null && im.type == Image.Type.Sliced
+                    && im.sprite != null && IsArtSlice(im.sprite))
+                {
+                    return cur;
+                }
+                if (cur == stopAt) break;
+                cur = cur.parent;
+            }
+            return null;
+        }
+
+        private static bool IsArtSlice(Sprite sp)
+        {
+            if (sp == null || sp.name == null) return false;
+            if (sp.name.StartsWith("st-round")) return false;
+            return sp.rect.width >= 100f && sp.rect.height >= 60f;
+        }
+
+        private static string Path(Component c)
+        {
+            var sb = new System.Text.StringBuilder(c.name);
+            var t = c.transform.parent;
+            int depth = 0;
+            while (t != null && depth++ < 4)
+            {
+                sb.Insert(0, t.name + "/");
+                t = t.parent;
+            }
+            return sb.ToString();
         }
 
         private List<PlatformState> FindSamePair()

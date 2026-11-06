@@ -125,7 +125,13 @@ namespace StarLane
             var panel = STUi.Rect(rt, "Panel", 240f, 96f, 600f, 56f);
             var img = panel.gameObject.AddComponent<Image>();
             var sprite = STAssets.Ui("frame-plate");
-            if (sprite != null) { img.sprite = sprite; img.type = Image.Type.Sliced; img.color = Color.white; }
+            if (sprite != null)
+            {
+                img.sprite = sprite;
+                img.type = Image.Type.Sliced;
+                img.color = Color.white;
+                STUi.FitSlice(img);
+            }
             else
             {
                 img.sprite = STUi.RoundSprite(14, new Color(0.59f, 0.5f, 0.94f, 0.7f), 2);

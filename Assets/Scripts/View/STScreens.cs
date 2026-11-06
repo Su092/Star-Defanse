@@ -157,6 +157,7 @@ namespace StarLane
                 img.sprite = sprite;
                 img.type = Image.Type.Sliced;
                 img.color = Color.white;
+                STUi.FitSlice(img);
             }
             else
             {
@@ -179,6 +180,14 @@ namespace StarLane
             var bg = CardBackground(rt, accent);
             btn.targetGraphic = bg;
 
+            // 内容区按实测 inset 算（九宫格四角会吃掉上下边框，不能写死坐标）
+            const float cw = 491f, ch = 248f;
+            float insY = STUi.SliceInsetY(bg, cw, ch);
+            float insX = STUi.SliceInsetX(bg, cw, ch);
+            float cTop = insY + 2f;
+            float cBottom = ch - insY - 2f;
+            float cH = cBottom - cTop;
+
             var colors = btn.colors;
             colors.highlightedColor = new Color(1.12f, 1.16f, 1.2f, 1f);
             colors.pressedColor = new Color(0.85f, 0.87f, 0.92f, 1f);
@@ -186,34 +195,41 @@ namespace StarLane
 
             if (portrait != null)
             {
-                // 立绘 660×990，卡片位 142×204：cover 会横向裁掉一部分，需要外层裁切
-                var clip = STUi.Clip(rt, 24f, 22f, 142f, 204f, "PortraitClip");
-                var img = STUi.PictureCovered(clip.transform, portrait, 0f, 0f, 142f, 204f);
+                // 立绘 660×990：按内容区高度铺满，外层裁切
+                float pw = 142f;
+                float px = Mathf.Max(insX, 18f);
+                var clip = STUi.Clip(rt, px, cTop, pw, cH, "PortraitClip");
+                var img = STUi.PictureCovered(clip.transform, portrait, 0f, 0f, pw, cH);
                 img.rectTransform.SetParent(clip.transform, true);
             }
 
-            const float x = 184f;
+            float x = Mathf.Max(insX, 18f) + 142f + 18f;
+            float right = cw - Mathf.Max(insX, 18f) - 14f;
+            float tw = right - x;
+
+            // 六行等比分配内容区高度
+            float rh = cH / 6f;
             var name = STUi.Label(rt, op.name, 36, STColors.White, true);
-            STUi.SetRect(name.rectTransform, x, 14f, 260f, 46f);
+            STUi.SetRect(name.rectTransform, x, cTop, tw, rh);
 
             var en = STUi.Label(rt, op.en, 14, STColors.Dim2, true);
-            STUi.SetRect(en.rectTransform, x, 58f, 260f, 22f);
+            STUi.SetRect(en.rectTransform, x, cTop + rh, tw, rh);
 
             var title = STUi.Label(rt, op.title, 18, STColors.Hex("C5BAF5"));
-            STUi.SetRect(title.rectTransform, x, 78f, 280f, 26f);
+            STUi.SetRect(title.rectTransform, x, cTop + rh * 2f, tw, rh);
 
             if (cls != null)
             {
                 var clsLabel = STUi.Label(rt, $"{cls.name} · {cls.role}", 18, cls.Accent, true);
-                STUi.SetRect(clsLabel.rectTransform, x, 106f, 300f, 26f);
+                STUi.SetRect(clsLabel.rectTransform, x, cTop + rh * 3f, tw, rh);
             }
 
             var trait = STUi.Label(rt, op.trait, 16, STColors.Dim);
-            STUi.SetRect(trait.rectTransform, x, 134f, 300f, 24f);
+            STUi.SetRect(trait.rectTransform, x, cTop + rh * 4f, tw, rh);
 
-            // 签名词条胶囊
+            // 签名词条胶囊（末行）
             float cx = x;
-            float cy = 164f;
+            float cy = cTop + rh * 5f;
             foreach (var aid in op.affixes)
             {
                 var a = STData.GetAffix(aid);
@@ -221,15 +237,15 @@ namespace StarLane
                 var chip = STUi.Chip(rt, a.name, cx, cy, new Color(0.59f, 0.5f, 0.94f, 0.55f), 15);
                 var chipText = chip.GetComponentInChildren<Text>();
                 float w = (chipText != null ? chipText.preferredWidth : 70f) + 24f;
-                chip.rectTransform.sizeDelta = new Vector2(w, 34f);
+                chip.rectTransform.sizeDelta = new Vector2(w, Mathf.Min(32f, rh - 2f));
                 chip.rectTransform.anchoredPosition = new Vector2(cx, -cy);
                 cx += w + 8f;
-                if (cx > x + 290f) { cx = x; cy += 40f; }
+                if (cx > right - 40f) break;        // 放不下就舍弃后续，绝不出界
             }
 
-            // 选中角标
+            // 选中角标（收进内容区右上，原来 y=12 压在顶边框上）
             var badgeColor = selected ? op.Accent : new Color(0.55f, 0.5f, 0.78f, 0.35f);
-            var badge = STUi.Rect(rt, "Badge", 380f, 12f, 82f, 32f);
+            var badge = STUi.Rect(rt, "Badge", right - 78f, cTop, 78f, Mathf.Min(30f, rh));
             var badgeImg = badge.gameObject.AddComponent<Image>();
             badgeImg.sprite = STUi.RoundSprite(999, Color.clear, 0);
             badgeImg.type = Image.Type.Sliced;
@@ -238,7 +254,7 @@ namespace StarLane
 
             var badgeLabel = STUi.LabelCentered(badge, selected ? "已上阵" : "＋", 15,
                 selected ? STColors.Hex("05131A") : STColors.Hex("CFC6F5"), true);
-            STUi.SetRect(badgeLabel.rectTransform, 0f, 4f, 82f, 24f);
+            STUi.Stretch(badgeLabel.rectTransform);
 
             return btn;
         }
@@ -345,34 +361,47 @@ namespace StarLane
             var bg = CardBackground(rt, unlocked ? new Color(0.38f, 0.32f, 0.66f) : new Color(0.3f, 0.27f, 0.45f));
             btn.targetGraphic = bg;
 
+            // 九宫格四角会吃掉上下边框，内容区 = inset..h-inset。
+            // 位置必须按实测 inset 算，不能写死：卡片的四角宽度随素材与尺寸变化
+            // （card / button-primary 的比例不同，mppu 也不同）。
+            float insetY = STUi.SliceInsetY(bg, w, h);
+            float insetX = STUi.SliceInsetX(bg, w, h);
+            float top = insetY + 2f;                    // 内容区上沿
+            float bottom = h - insetY - 2f;             // 内容区下沿
+            float left = Mathf.Max(insetX, 20f) + 8f;
+            float innerH = bottom - top;
+
             if (thumb != null)
             {
-                var clip = STUi.Clip(rt, 560f, 14f, 336f, 204f, "ThumbClip");
-                var img = STUi.PictureCovered(clip.transform, thumb, 0f, 0f, 336f, 204f);
+                float tx = w - Mathf.Max(insetX, 20f) - 336f;
+                var clip = STUi.Clip(rt, tx, top, 336f, innerH, "ThumbClip");
+                var img = STUi.PictureCovered(clip.transform, thumb, 0f, 0f, 336f, innerH);
                 img.rectTransform.SetParent(clip.transform, true);
                 img.color = unlocked ? new Color(1f, 1f, 1f, 0.95f) : new Color(0.55f, 0.55f, 0.6f, 0.9f);
             }
 
+            // 竖向六行按内容区高度等比分配，任何卡片尺寸都不会溢出
+            float rh = innerH / 6f;
             var idx = STUi.Label(rt, "0" + lv.index, 20, unlocked ? STColors.Cyan : new Color(0.55f, 0.52f, 0.7f), true);
-            STUi.SetRect(idx.rectTransform, 34f, 20f, 120f, 28f);
+            STUi.SetRect(idx.rectTransform, left, top, 120f, rh);
 
-            var nm = STUi.Label(rt, lv.name, 42, unlocked ? STColors.White : new Color(0.62f, 0.58f, 0.72f), true);
-            STUi.SetRect(nm.rectTransform, 34f, 46f, 500f, 56f);
+            var nm = STUi.Label(rt, lv.name, 40, unlocked ? STColors.White : new Color(0.62f, 0.58f, 0.72f), true);
+            STUi.SetRect(nm.rectTransform, left, top + rh, 500f, rh);
 
             var en = STUi.Label(rt, lv.en, 16, STColors.Dim2, true);
-            STUi.SetRect(en.rectTransform, 34f, 104f, 500f, 24f);
+            STUi.SetRect(en.rectTransform, left, top + rh * 2f, 500f, rh);
 
             string[] diffs = { "标准", "困难", "极难" };
             var diff = STUi.Label(rt, "难度 · " + diffs[Mathf.Clamp(lv.index - 1, 0, 2)], 19, STColors.Hex("C5BAF5"));
-            STUi.SetRect(diff.rectTransform, 34f, 136f, 400f, 26f);
+            STUi.SetRect(diff.rectTransform, left, top + rh * 3f, 400f, rh);
 
             var meta = STUi.Label(rt, "10 波 · 精英 第5波 · BOSS 第10波", 17, STColors.Dim);
-            STUi.SetRect(meta.rectTransform, 34f, 164f, 520f, 24f);
+            STUi.SetRect(meta.rectTransform, left, top + rh * 4f, 520f, rh);
 
             string state = done ? "★ 已通关" : (unlocked ? "未通关" : "通关上一关解锁");
             var stateColor = done ? STColors.Gold : (unlocked ? STColors.White : new Color(0.62f, 0.58f, 0.72f));
             var stateLabel = STUi.Label(rt, state, 20, stateColor, true);
-            STUi.SetRect(stateLabel.rectTransform, 34f, 194f, 520f, 28f);
+            STUi.SetRect(stateLabel.rectTransform, left, top + rh * 5f, 520f, rh);
 
             if (!unlocked) rt.gameObject.AddComponent<CanvasGroup>().alpha = 0.72f;
             return btn;
@@ -388,16 +417,25 @@ namespace StarLane
             var box = STUi.Panel(root, 56f, 470f, 968f, 980f, STColors.Hex("0E0A20"),
                 new Color(0.48f, 0.42f, 0.78f, 0.8f), 26, 3);
 
-            var kicker = STUi.LabelCentered(box.rectTransform, "SYNERGY DRAW", 16, STColors.Cyan, true);
-            STUi.SetRect(kicker.rectTransform, 0f, 50f, 968f, 24f);
+            // 弹窗面板本身也是九宫格：边距 = 短边 22% ≈ 213，内容区只剩 y=213..767。
+            // 标题与底部提示必须按实测内容区排，不能写死 y=50 / y=898。
+            const float BW = 968f, BH = 980f;
+            var boxImg = box.GetComponent<Image>();
+            float bInsY = STUi.SliceInsetY(boxImg, BW, BH);
+            float bInsX = STUi.SliceInsetX(boxImg, BW, BH);
+            float bTop = bInsY + 4f;
+            float bBot = BH - bInsY - 4f;
 
-            var title = STUi.LabelCentered(box.rectTransform, "抽取词条", 46, STColors.White, true);
-            STUi.SetRect(title.rectTransform, 0f, 74f, 968f, 60f);
+            var kicker = STUi.LabelCentered(box.rectTransform, "SYNERGY DRAW", 16, STColors.Cyan, true);
+            STUi.SetRect(kicker.rectTransform, bInsX, bTop, BW - bInsX * 2f, 24f);
+
+            var title = STUi.LabelCentered(box.rectTransform, "抽取词条", 44, STColors.White, true);
+            STUi.SetRect(title.rectTransform, bInsX, bTop + 26f, BW - bInsX * 2f, 56f);
 
             var sub = STUi.LabelCentered(box.rectTransform, "从编队词条池中随机 3 选 1，永久生效", 18, STColors.Dim);
-            STUi.SetRect(sub.rectTransform, 0f, 138f, 968f, 26f);
+            STUi.SetRect(sub.rectTransform, bInsX, bTop + 86f, BW - bInsX * 2f, 26f);
 
-            float y = 190f;
+            float y = bTop + 124f;
             for (int i = 0; i < choices.Count; i++)
             {
                 var id = choices[i];
@@ -414,19 +452,32 @@ namespace StarLane
                 btn.targetGraphic = bg;
                 btn.onClick.AddListener(() => onPick?.Invoke(id));
 
+                // 按实测九宫格边距排布，避免文字压在切角花纹上
+                const float aw = 924f, ah = 208f;
+                float aInsY = STUi.SliceInsetY(bg, aw, ah);
+                float aInsX = STUi.SliceInsetX(bg, aw, ah);
+                float aTop = aInsY + 2f;
+                float aBottom = ah - aInsY - 2f;
+                // 左内边距要比四角再多留 12px 呼吸，否则文字紧贴 45° 高光的尾端
+                float aLeft = Mathf.Max(aInsX, 20f) + 12f;
+                float aRight = aw - Mathf.Max(aInsX, 20f) - 12f;
+                float aH = aBottom - aTop;
+
+                // 四行等比：类别 / 名称 / 描述（占两行）
+                float arh = aH / 4f;
                 var fam = STUi.Label(card, STData.FamilyName(a.family) + "词条", 15, col, true);
-                STUi.SetRect(fam.rectTransform, 34f, 24f, 300f, 22f);
+                STUi.SetRect(fam.rectTransform, aLeft, aTop, 300f, arh);
 
                 var name = STUi.Label(card, a.name, 38, STColors.White, true);
-                STUi.SetRect(name.rectTransform, 34f, 50f, 700f, 52f);
+                STUi.SetRect(name.rectTransform, aLeft, aTop + arh, aRight - aLeft - 80f, arh);
 
                 var desc = STUi.Label(card, a.desc, 20, STColors.Hex("C5BAF5"));
-                STUi.SetRect(desc.rectTransform, 34f, 110f, 800f, 60f);
+                STUi.SetRect(desc.rectTransform, aLeft, aTop + arh * 2f, aRight - aLeft, arh * 2f);
                 desc.horizontalOverflow = HorizontalWrapMode.Wrap;
                 desc.verticalOverflow = VerticalWrapMode.Truncate;
 
                 var idxLabel = STUi.LabelRight(card, "0" + (i + 1), 30, new Color(1f, 1f, 1f, 0.12f), true);
-                STUi.SetRect(idxLabel.rectTransform, 840f, 16f, 60f, 40f);
+                STUi.SetRect(idxLabel.rectTransform, aRight - 60f, aTop, 60f, arh);
 
                 var pick = STUi.Solid(card, col, 742f, 132f, 140f, 48f);
                 pick.sprite = STUi.RoundSprite(999, Color.clear, 0);
@@ -437,10 +488,12 @@ namespace StarLane
                 y += 222f;
             }
 
+            // 底部一行收进内容区下沿（原 y=880 落在 213px 的边距带里）
             var goldLabel = STUi.Label(box.rectTransform, "金币 " + gold, 19, STColors.Gold, true);
-            STUi.SetRect(goldLabel.rectTransform, 44f, 880f, 300f, 28f);
+            STUi.SetRect(goldLabel.rectTransform, bInsX + 10f, bBot - 40f, 300f, 32f);
 
-            var later = STUi.SmallButton(box.rectTransform, "稍后选择", 690f, 872f, 240f, 50f,
+            var later = STUi.SmallButton(box.rectTransform, "稍后选择",
+                BW - bInsX - 250f, bBot - 48f, 240f, 44f,
                 STColors.Hex("7A6BC7"), STColors.Hex("B9AEF0"));
             later.onClick.AddListener(() => onLater?.Invoke());
 
