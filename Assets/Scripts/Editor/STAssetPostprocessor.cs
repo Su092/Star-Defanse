@@ -52,31 +52,89 @@ namespace StarLane.EditorTools
 
         // ---------------------------------------------------------------- 九宫格边距
         // Unity 的 Sliced 依赖 spriteBorder，未设置时会退化成拉伸（边框被拉变形）。
-        // 注意：AssetPostprocessor 对已导入的资源不会重跑，批量设置见 STUiBorders.FixAll。
+        // 注意：AssetPostprocessor 对已导入的资源不会重跑，批量设置见 STBuild.FixUiBorders。
         //
-        // 边距 = 贴图短边 × RATIO，再按「四角之和必须小于尺寸」收紧。
+        // 这里的值由 tools/ui_borders.py 从 AI 生成的素材**实测**得出
+        // （沿四条边各取 9 条扫描线，去掉极值取中位数），再经 tools/ui_install.py
+        // 按实际缩放系数换算后写入 tools/ui-sprite-borders.json。
         //
-        // 为什么是固定比例而不是逐边实测：这批素材是「切角 + 45°玻璃反光 +
-        // 端头凹槽 + 硬边阴影分界」的赛璐璐风格，内部的硬边阴影会制造一条
-        // 横向分界，导致「与内胆基色不同」的自动判据把整块内胆都算成装饰
-        // （实测四个边全部顶到 45% 上限），自动检测在这里不可靠。
-        //
-        // 正确的保证来自运行时 STUi.FitSlice：四角按「素材短边 ↔ 控件短边」
-        // 等比缩放，切角永远是 45°；比例只要够覆盖装饰带即可。
-        // RATIO = 0.22 时内容区保留 56% 短边，实测装饰带约 20~45%，配合
-        // FitSlice 的收缩，小控件上边框会自动变细、不会挤掉内容。
-        private const float BorderRatio = 0.22f;
+        // 为什么必须四边独立：AI 生成的边框天然不等厚（panel-a 上 61 下 53、
+        // plate-b 左 134 右 133），而 Unity 的 spriteBorder 正是
+        // (left, bottom, right, top) 四值语义，照实测写入即可。
+        // 早期版本用「短边 × 固定比例」给四个相等值，结果某一侧的白带会进了
+        // 可拉伸区，拉伸时被抹开 —— 那就是肉眼看到的「UI 被压扁」。
+        private const string BorderJson = "tools/ui-sprite-borders.json";
+
+        private static System.Collections.Generic.Dictionary<string, Vector4> _borderCache;
+
+        private static System.Collections.Generic.Dictionary<string, Vector4> LoadSpriteBorders()
+        {
+            if (_borderCache != null) return _borderCache;
+            _borderCache = new System.Collections.Generic.Dictionary<string, Vector4>();
+
+            // Application.dataPath 形如 <proj>/Assets，工程根是它的父目录
+            string root = System.IO.Path.GetDirectoryName(Application.dataPath);
+            string path = System.IO.Path.Combine(root ?? "", BorderJson);
+            if (!System.IO.File.Exists(path))
+            {
+                Debug.LogWarning("[ST] 缺少 " + BorderJson + "，九宫格边距退回等比兜底");
+                return _borderCache;
+            }
+
+            try
+            {
+                string json = System.IO.File.ReadAllText(path);
+                var wrapper = JsonUtility.FromJson<BorderFile>(json);
+                if (wrapper?.items != null)
+                {
+                    foreach (var it in wrapper.items)
+                        _borderCache[it.name] = new Vector4(it.left, it.bottom, it.right, it.top);
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogWarning("[ST] 解析 " + BorderJson + " 失败：" + e.Message);
+            }
+            return _borderCache;
+        }
+
+        [System.Serializable]
+        private class BorderFile { public BorderEntry[] items; }
+
+        [System.Serializable]
+        private class BorderEntry
+        {
+            public string name;
+            public float left, bottom, right, top;
+        }
 
         private static void ApplyBorder(TextureImporter importer, string path)
         {
             var name = System.IO.Path.GetFileNameWithoutExtension(path);
             if (!BorderNames.Contains(name)) return;
 
+            var table = LoadSpriteBorders();
+            if (!table.TryGetValue(name, out var border))
+            {
+                // 兜底：等比取短边 22%，至少不会把图完全压扁
+                importer.GetSourceTextureWidthAndHeight(out int w0, out int h0);
+                float s0 = Mathf.Min(w0, h0) * 0.22f;
+                border = new Vector4(s0, s0, s0, s0);
+            }
+
             importer.GetSourceTextureWidthAndHeight(out int w, out int h);
-            float shortSide = Mathf.Min(w, h);
-            // 边距不能超过短边的一半，否则九宫格左右/上下会重叠
-            float m = Mathf.Min(shortSide * BorderRatio, shortSide * 0.45f);
-            importer.spriteBorder = new Vector4(m, m, m, m);
+            // 保险：任意两片之和必须小于尺寸，否则 Unity 会强行压缩
+            if (border.x + border.z >= w)
+            {
+                float f = w * 0.9f / (border.x + border.z);
+                border.x *= f; border.z *= f;
+            }
+            if (border.y + border.w >= h)
+            {
+                float f = h * 0.9f / (border.y + border.w);
+                border.y *= f; border.w *= f;
+            }
+            importer.spriteBorder = border;
         }
 
         private static readonly System.Collections.Generic.HashSet<string> BorderNames =
@@ -181,3 +239,4 @@ namespace StarLane.EditorTools
         }
     }
 }
+

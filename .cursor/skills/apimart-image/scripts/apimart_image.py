@@ -188,12 +188,17 @@ def http_json(url, key, payload=None, method=None, timeout=180, retries=4):
     raise RuntimeError(last or "request failed")
 
 
-def submit(key, prompt, size, resolution, image_urls=None, nsfw_check=False):
+def submit(key, prompt, size, resolution, image_urls=None, nsfw_check=False,
+           background=None):
     body = {"model": MODEL, "prompt": prompt, "n": 1}
     if size:
         body["size"] = size
     if resolution:
         body["resolution"] = resolution
+    if background:
+        # "transparent" 让服务端直接返回带 alpha 的 PNG（比事后抠图干净得多，
+        # 尤其是描边、内发光这类半透明边缘）。
+        body["background"] = background
     if image_urls:
         body["image_urls"] = image_urls
     if nsfw_check:
@@ -258,7 +263,8 @@ def run_one(key, item, global_style=""):
     print("[%s] submitting (%s / %s)" % (item["id"], item.get("size", "auto"),
                                          item.get("resolution", "1k")))
     tid = submit(key, prompt, item.get("size"), item.get("resolution"),
-                 item.get("image_urls"), item.get("nsfw_check", False))
+                 item.get("image_urls"), item.get("nsfw_check", False),
+                 item.get("background"))
     print("  task_id=%s" % tid)
     url = poll(key, tid)
     return download(url, item["out"])
@@ -275,6 +281,8 @@ def main():
     ap.add_argument("--manifest", help="JSON 清单，含 style 与 assets[]")
     ap.add_argument("--only", help="只跑清单里的这些 id，逗号分隔")
     ap.add_argument("--task-id", help="跳过提交，直接轮询已有任务")
+    ap.add_argument("--background", choices=["transparent", "opaque"],
+                    help="transparent 直接返回带 alpha 的 PNG")
     args = ap.parse_args()
 
     key = find_key(args.key)
@@ -299,6 +307,8 @@ def main():
             print("清单里没有匹配的条目", file=sys.stderr)
             return 2
         for it in items:
+            if args.background and not it.get("background"):
+                it = dict(it, background=args.background)
             run_one(key, it, style)
         return 0
 
@@ -308,7 +318,8 @@ def main():
 
     run_one(key, {"id": os.path.basename(args.out), "prompt": args.prompt,
                   "out": args.out, "size": args.size,
-                  "resolution": args.resolution, "no_global_style": True})
+                  "resolution": args.resolution, "no_global_style": True,
+                  "background": args.background})
     return 0
 
 

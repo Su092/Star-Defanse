@@ -243,9 +243,16 @@ namespace StarLane
             fill.type = Image.Type.Sliced;
             CoreFill = fill;
 
-            // 数字放在内容区右侧
+            // 数字：右沿对齐内容区右沿，垂直居中于进度条。
+            // 注意要用「内容区」的坐标算，不能按面板宽度倒推：
+            // 各类素材的右边距不同（button-gold 右 60.5、plate-thin 右 46），
+            // 倒推会算到内腔外面去。
+            float numW = 60f;
+            float numH = 28f;
+            float numX = Mathf.Max(cIns, 10f) + 36f + (330f - Mathf.Max(cIns, 10f) * 2f - 66f) - numW;
+            float numY = cTop + Mathf.Max(0f, (cH - numH) * 0.5f);
             CoreNum = STUi.LabelRight(corePanel, "20", 24, STColors.White, true);
-            STUi.SetRect(CoreNum.rectTransform, 330f - Mathf.Max(cIns, 10f) - 62f, cTop + cH - 32f, 56f, 28f);
+            STUi.SetRect(CoreNum.rectTransform, numX, numY, numW, numH);
 
             // 召唤大按钮
             var summon = STUi.RoundButton(root, new Vector2(954f, 1760f), 88f, STColors.Cyan, "", "", 0);

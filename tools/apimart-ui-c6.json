@@ -1,0 +1,102 @@
+{
+  "_comment": "C6 风格 UI 素材（APIMart 直出透明 PNG）。每类给多个变体，供后续挑选。",
+  "style": "flat cel-shaded hard-surface sci-fi UI, thick bold black ink outline around every shape, NO gradients, NO soft glow, NO bloom, NO text, NO letters, NO numbers, NO logo, NO watermark, empty hollow interior reserved for game content, symmetrical frame with equal border thickness on all four sides, centered composition, isolated single object on transparent background",
+  "assets": [
+    {
+      "id": "panel-a",
+      "out": "UiStyleTests/gen/panel-a.png",
+      "size": "4:3",
+      "resolution": "2k",
+      "background": "transparent",
+      "prompt": "One single rectangular sci-fi game UI container panel, white ceramic armour plating frame, chamfered 45 degree outer corners, thick black ink outline, dark navy hollow interior, thin cyan light strip running along the inner top edge, four small gold L-shaped corner brackets, tiny etched dot clusters in the corners, equal border thickness on left right top and bottom. Nothing else in the image."
+    },
+    {
+      "id": "panel-b",
+      "out": "UiStyleTests/gen/panel-b.png",
+      "size": "4:3",
+      "resolution": "2k",
+      "background": "transparent",
+      "prompt": "One single rectangular sci-fi game UI container panel, layered white armour plates with visible plate seams and small hexagonal bolts, thick black ink outline, deep charcoal hollow interior, gold trim line inset along the whole border, short cyan indicator dashes at the top left and bottom right, two hard two-tone shading bands on the frame, equal border thickness on all four sides. Nothing else in the image."
+    },
+    {
+      "id": "panel-gold-a",
+      "out": "UiStyleTests/gen/panel-gold-a.png",
+      "size": "4:3",
+      "resolution": "2k",
+      "background": "transparent",
+      "prompt": "One single rectangular sci-fi game UI container panel in a premium variant, white ceramic armour frame with broad polished gold bevel band running around the entire perimeter, ornate gold corner brackets with rivet studs, thick black ink outline, dark navy hollow interior, thin cyan filament glowing inside the gold band, equal border thickness on all four sides. Nothing else in the image."
+    },
+    {
+      "id": "plate-a",
+      "out": "UiStyleTests/gen/plate-a.png",
+      "size": "3:1",
+      "resolution": "2k",
+      "background": "transparent",
+      "prompt": "One single long horizontal sci-fi game UI info bar, slim white ceramic armour frame, chamfered corners, thick black ink outline, dark navy hollow interior, a vertical cyan indicator strip on the left inner edge, three tiny gold tick marks on the right inner edge, equal top and bottom border thickness. Nothing else in the image."
+    },
+    {
+      "id": "plate-b",
+      "out": "UiStyleTests/gen/plate-b.png",
+      "size": "3:1",
+      "resolution": "2k",
+      "background": "transparent",
+      "prompt": "One single long horizontal sci-fi game UI info bar, white armour frame split into two hard flat tones with a single straight horizontal division, thick black ink outline, charcoal hollow interior, small cyan square indicator at the left end, tiny etched dot cluster at the right end, equal top and bottom border thickness. Nothing else in the image."
+    },
+    {
+      "id": "button-a",
+      "out": "UiStyleTests/gen/button-a.png",
+      "size": "16:9",
+      "resolution": "2k",
+      "background": "transparent",
+      "prompt": "One single wide sci-fi game UI action button, white ceramic armour frame with chamfered 45 degree corners, thick black ink outline, dark navy hollow interior, a wide cyan energy groove inset along the bottom inner edge, short gold L bracket on each corner, equal border thickness on all four sides. Nothing else in the image, no icon inside."
+    },
+    {
+      "id": "button-gold-a",
+      "out": "UiStyleTests/gen/button-gold-a.png",
+      "size": "16:9",
+      "resolution": "2k",
+      "background": "transparent",
+      "prompt": "One single wide sci-fi game UI action button in a premium gold variant, white ceramic armour frame, gold bevel band around the perimeter, four bold gold corner brackets with studs, thick black ink outline, deep charcoal hollow interior, a cyan energy groove along the bottom inner edge, equal border thickness on all four sides. Nothing else in the image, no icon inside."
+    },
+    {
+      "id": "round-a",
+      "out": "UiStyleTests/gen/round-a.png",
+      "size": "1:1",
+      "resolution": "2k",
+      "background": "transparent",
+      "prompt": "One single circular sci-fi game UI button frame, white ceramic armour ring, thick black ink outline, DARK NAVY hollow centre disc, a cyan energy arc along the upper left quarter of the ring, eight small gold studs spaced evenly around the ring, uniform ring thickness all the way around, perfectly centred circle. Nothing else in the image, no icon inside."
+    },
+    {
+      "id": "round-b",
+      "out": "UiStyleTests/gen/round-b.png",
+      "size": "1:1",
+      "resolution": "2k",
+      "background": "transparent",
+      "prompt": "One single circular sci-fi game UI button frame, faceted white armour ring with eight flat edges like a machined gear rim, thick black ink outline, near-black hollow centre disc, gold accent wedge at the bottom, thin cyan segmented arc around the top half, uniform ring thickness all the way around, perfectly centred. Nothing else in the image, no icon inside."
+    },
+    {
+      "id": "bar-a",
+      "out": "UiStyleTests/gen/bar-a.png",
+      "size": "3:1",
+      "resolution": "2k",
+      "background": "transparent",
+      "prompt": "One single very long thin horizontal sci-fi progress bar track, slim white armour rim, thick black ink outline, entirely hollow dark charcoal interior for a coloured fill to show through, no gold, no cyan, minimal quiet frame, equal top and bottom rim thickness. Nothing else in the image."
+    },
+    {
+      "id": "card-a",
+      "out": "UiStyleTests/gen/card-a.png",
+      "size": "3:4",
+      "resolution": "2k",
+      "background": "transparent",
+      "prompt": "One single tall vertical sci-fi game UI character card frame, white ceramic armour frame, chamfered corners, thick black ink outline, dark navy hollow interior, thin cyan line along the inner top edge, gold corner brackets at all four corners, tiny etched dots, equal border thickness on all four sides. Nothing else in the image, empty interior."
+    },
+    {
+      "id": "chip-a",
+      "out": "UiStyleTests/gen/chip-a.png",
+      "size": "3:1",
+      "resolution": "2k",
+      "background": "transparent",
+      "prompt": "One single small pill-shaped sci-fi game UI tag, compact white armour rim, thick black ink outline, dark navy hollow interior, a tiny cyan dot at the left end, fully rounded ends, uniform rim thickness. Nothing else in the image."
+    }
+  ]
+}

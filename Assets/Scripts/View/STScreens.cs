@@ -479,10 +479,16 @@ namespace StarLane
                 var idxLabel = STUi.LabelRight(card, "0" + (i + 1), 30, new Color(1f, 1f, 1f, 0.12f), true);
                 STUi.SetRect(idxLabel.rectTransform, aRight - 60f, aTop, 60f, arh);
 
-                var pick = STUi.Solid(card, col, 742f, 132f, 140f, 48f);
+                // 「选择」按钮贴着内容区右下角，位置由 aRight/aBottom 推导，
+                // 不能写死 742/132：C6 风格的白甲带更厚，内容区变窄了
+                float pickW = Mathf.Min(140f, (aRight - aLeft) * 0.28f);
+                float pickH = Mathf.Min(44f, aH * 0.26f);
+                var pick = STUi.Solid(card, col,
+                    aRight - pickW - 4f, aBottom - pickH - 4f, pickW, pickH);
                 pick.sprite = STUi.RoundSprite(999, Color.clear, 0);
                 pick.type = Image.Type.Sliced;
-                var pickLabel = STUi.LabelCentered(pick.rectTransform, "选择", 18, STColors.Hex("05131A"), true);
+                var pickLabel = STUi.LabelCentered(pick.rectTransform, "选择", 18,
+                    STColors.Hex("05131A"), true);
                 STUi.Stretch(pickLabel.rectTransform);
 
                 y += 222f;

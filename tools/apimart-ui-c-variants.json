@@ -1,0 +1,48 @@
+{
+  "_comment": "UI 风格测试 · C 系变体（军规克制方向）。仅用于比选，不接入工程。",
+  "style": "Japanese cel-shaded anime sci-fi game UI concept art, crisp clean line work, flat two-tone hard-edged shading with absolutely NO soft gradients and NO bloom and NO lens flare, hard-surface precision instrument design, placeholder text rendered as blank flat bars with no readable letters or numbers, no logo, no watermark, no real words",
+  "assets": [
+    {
+      "id": "ui-c1-coldwhite",
+      "out": "UiStyleTests/ui-c1-coldwhite.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "prompt": "Mobile portrait game HUD mockup for a sci-fi tower defense, restrained military-specification instrument panel look. Layout: three stacked horizontal info plates in the top-left corner, three circular buttons stacked vertically along the left edge, one wide action card in the bottom-left, a horizontal segmented health bar in the bottom center, one large circular button in the bottom right. Panels are FLAT COLD WHITE plates in the exact same cool blue-white tone as white mecha armour, matte with no highlight, each bordered by a single hairline charcoal line, one thin cyan indicator strip per plate, tiny etched panel seam lines and small bracket marks instead of any glow. Shallow 45-degree chamfered corners, no rivets, no bevels. Almost no glow anywhere, only the thin cyan indicators emit light. Background: dark deep space battlefield with a faint purple lane, darkened so the white plates dominate. Calm, orderly, extremely low visual noise, reads well at small sizes."
+    },
+    {
+      "id": "ui-c2-graphite",
+      "out": "UiStyleTests/ui-c2-graphite.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "prompt": "Mobile portrait game HUD mockup for a sci-fi tower defense, restrained military-specification instrument panel look in a DARK variant. Layout: three stacked horizontal info plates in the top-left corner, three circular buttons stacked vertically along the left edge, one wide action card in the bottom-left, a horizontal segmented health bar in the bottom center, one large circular button in the bottom right. Panels are FLAT GRAPHITE CHARCOAL plates with a cool blue-grey cast, matte with no highlight, each bordered by a single hairline off-white line, one thin cyan indicator strip per plate, tiny etched panel seam lines and small bracket marks instead of any glow. Shallow 45-degree chamfered corners, no rivets, no bevels. Almost no glow anywhere, only the thin cyan indicators emit light. Background: dark deep space battlefield with a faint purple lane. Very low visual noise, quiet and technical, high text contrast."
+    },
+    {
+      "id": "ui-c3-hairline-gold",
+      "out": "UiStyleTests/ui-c3-hairline-gold.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "prompt": "Mobile portrait game HUD mockup for a sci-fi tower defense, restrained military-specification instrument panel look with a single gold accent. Layout: three stacked horizontal info plates in the top-left corner, three circular buttons stacked vertically along the left edge, one wide action card in the bottom-left, a horizontal segmented health bar in the bottom center, one large circular button in the bottom right. Panels are FLAT COLD WHITE plates in the same cool blue-white tone as white mecha armour, matte with no highlight, each bordered by a single HAIRLINE GOLD line, tiny gold corner tick marks, one thin cyan indicator strip per plate. No thick gold bands, no ornament, no glow except the cyan indicators. Shallow chamfered corners, no rivets. Background: dark deep space battlefield with a faint purple lane, darkened. Precise, restrained, slightly premium through the gold hairlines only."
+    },
+    {
+      "id": "ui-c4-twotone",
+      "out": "UiStyleTests/ui-c4-twotone.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "prompt": "Mobile portrait game HUD mockup for a sci-fi tower defense, restrained military-specification instrument panel look built on a hard two-tone split. Layout: three stacked horizontal info plates in the top-left corner, three circular buttons stacked vertically along the left edge, one wide action card in the bottom-left, a horizontal segmented health bar in the bottom center, one large circular button in the bottom right. Every panel is divided horizontally into two FLAT solid tones by a single hard straight edge with no gradient: cool white on the upper portion and pale cool grey on the lower portion, exactly like two-tone cel shading on armour. Each panel has a single hairline charcoal border and one thin cyan indicator strip. No bevels, no rivets, no glow except the indicators. Shallow chamfered corners. Background: dark deep space battlefield with a faint purple lane, darkened. Graphic and flat, reads like stencilled military markings."
+    },
+    {
+      "id": "ui-c5-frameless",
+      "out": "UiStyleTests/ui-c5-frameless.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "prompt": "Mobile portrait game HUD mockup for a sci-fi tower defense, the most minimal interpretation: NO borders and NO frames anywhere. Layout: three stacked horizontal info plates in the top-left corner, three circular buttons stacked vertically along the left edge, one wide action card in the bottom-left, a horizontal segmented health bar in the bottom center, one large circular button in the bottom right. All elements are plain FLAT COLD WHITE solid shapes with slightly chamfered corners, no outline at all, no bevel, no rivet, no ornament. Hierarchy comes only from shape size, spacing and a single thin cyan underline beneath each plate. Almost no glow, only those thin cyan underlines. Background: dark deep space battlefield with a faint purple lane, darkened. Extremely clean, silent, near-paper flat graphic design."
+    },
+    {
+      "id": "ui-c6-etched",
+      "out": "UiStyleTests/ui-c6-etched.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "prompt": "Mobile portrait game HUD mockup for a sci-fi tower defense, restrained military-specification instrument panel look focused on fine ENGRAVED detail. Layout: three stacked horizontal info plates in the top-left corner, three circular buttons stacked vertically along the left edge, one wide action card in the bottom-left, a horizontal segmented health bar in the bottom center, one large circular button in the bottom right. Panels are FLAT COLD WHITE plates in the same cool blue-white tone as white mecha armour, matte, each with a single hairline charcoal border. On each plate there are fine engraved panel seam lines, a small block of tiny etched dots and short stencilled hatch marks in charcoal, plus one thin cyan indicator strip. All the detail is etched and flat, no raised bevel, no rivet heads, no glow except the indicators. Shallow chamfered corners. Background: dark deep space battlefield with a faint purple lane, darkened. Technical, precise, quiet but not empty."
+    }
+  ]
+}

@@ -39,32 +39,44 @@ namespace StarLane.EditorTools
         /// <summary>
         /// 校准 UI 九宫格边距（幂等）。
         ///
-        /// 边距 = 贴图短边 × 0.22，依据见 STUiBorders 的注释。这里挂在资源校验里
-        /// 一起跑，避免依赖单独的 executeMethod 入口（那条路径在 batchmode 下
-        /// 偶发解析不到类）。
+        /// 边距来源是 tools/ui-sprite-borders.json —— 由 tools/ui_borders.py
+        /// 从 AI 生成的素材实测（四边各取 9 条扫描线、去极值取中位数），
+        /// 再经 tools/ui_install.py 按缩放系数换算。
+        /// 四边独立的原因见 STAssetPostprocessor 里的说明。
         /// </summary>
         private static void FixUiBorders()
         {
             const string dir = "Assets/Resources/Art/UI";
-            string[] names =
+            string root = System.IO.Path.GetDirectoryName(Application.dataPath);
+            string jsonPath = System.IO.Path.Combine(root ?? "", "tools/ui-sprite-borders.json");
+
+            var table = new System.Collections.Generic.Dictionary<string, Vector4>();
+            if (System.IO.File.Exists(jsonPath))
             {
-                "panel", "panel-gold", "frame-plate", "card",
-                "button-primary", "button-gold", "chip", "bar",
-                "plate-thin",
-            };
+                try
+                {
+                    var wrapper = JsonUtility.FromJson<BorderFile>(System.IO.File.ReadAllText(jsonPath));
+                    if (wrapper?.items != null)
+                        foreach (var it in wrapper.items)
+                            table[it.name] = new Vector4(it.left, it.bottom, it.right, it.top);
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogWarning("[ST] 解析 ui-sprite-borders.json 失败：" + e.Message);
+                }
+            }
+            else
+            {
+                Debug.LogWarning("[ST] 缺少 tools/ui-sprite-borders.json，跳过九宫格校准");
+            }
 
             int fixedCount = 0;
-            foreach (var n in names)
+            foreach (var kv in table)
             {
-                var importer = AssetImporter.GetAtPath($"{dir}/{n}.png") as TextureImporter;
+                var importer = AssetImporter.GetAtPath($"{dir}/{kv.Key}.png") as TextureImporter;
                 if (importer == null) continue;
 
-                importer.GetSourceTextureWidthAndHeight(out int w, out int h);
-                float shortSide = Mathf.Min(w, h);
-                float m = Mathf.Min(shortSide * 0.22f, shortSide * 0.45f);
-                var want = new Vector4(m, m, m, m);
-
-                // 一致就跳过，避免每次都触发重新导入（打包会变慢）
+                var want = kv.Value;
                 if ((importer.spriteBorder - want).sqrMagnitude < 0.01f) continue;
 
                 importer.spriteBorder = want;
@@ -83,6 +95,16 @@ namespace StarLane.EditorTools
                 AssetDatabase.Refresh();
                 Debug.Log($"[ST] 九宫格边距已校准 {fixedCount} 张");
             }
+        }
+
+        [System.Serializable]
+        private class BorderFile { public BorderEntry[] items; }
+
+        [System.Serializable]
+        private class BorderEntry
+        {
+            public string name;
+            public float left, bottom, right, top;
         }
 
         private static void Check(string name, bool ok, string detail = null)
@@ -275,3 +297,4 @@ namespace StarLane.EditorTools
         }
     }
 }
+

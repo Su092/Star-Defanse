@@ -1,0 +1,41 @@
+{
+  "_comment": "UI 风格测试：以新防御塔（白甲 + 金饰边 + 青色能量槽 + 厚黑描边）为基准，测试多版界面方向。仅用于比选，不接入工程。",
+  "style": "Japanese cel-shaded anime sci-fi game UI concept art, thick clean black ink outlines, flat two-tone hard-edged shading with absolutely NO soft gradients and NO bloom, hard-surface mechanical design, crisp vector-like shapes, placeholder text rendered as blank rounded bars with no readable letters or numbers, no logo, no watermark, no real words",
+  "assets": [
+    {
+      "id": "ui-a-white-armor",
+      "out": "UiStyleTests/ui-a-white-armor.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "prompt": "Mobile portrait game HUD mockup for a sci-fi tower defense, the interface is built entirely from solid WHITE ceramic armour plates that look salvaged from mecha hulls. Layout: three stacked horizontal info plates in the top-left corner, three circular buttons stacked vertically along the left edge, one wide rounded action card in the bottom-left, a horizontal segmented health bar in the bottom center, one large circular button in the bottom right. Every plate is a thick white bevelled slab with a gold chamfered edge trim and deep charcoal recessed grooves, thin cyan light strips glowing inside the grooves, small gold rivets and hexagon bolts on the corners. Panels float slightly above the battlefield with a hard black offset drop shadow, no blur. Background: dark deep space battlefield with a faint purple winding lane and a few tiny cyan unit silhouettes, heavily darkened so the white panels dominate. High contrast, white-dominant interface, very clean."
+    },
+    {
+      "id": "ui-b-armor-frame",
+      "out": "UiStyleTests/ui-b-armor-frame.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "prompt": "Mobile portrait game HUD mockup for a sci-fi tower defense, mixing TWO materials: white armoured frames with dark navy glass window panels inset inside them. Layout: three stacked horizontal info plates in the top-left corner, three circular buttons stacked vertically along the left edge, one wide rounded action card in the bottom-left, a horizontal health bar in the bottom center, one large circular button in the bottom right. Each element is a white hard-surface armour frame with gold chamfered corner caps, holding a deep navy translucent glass window set slightly recessed below the frame surface, cyan energy lines running along the frame seams, small gold latch details. The dark glass keeps content areas readable while the white frame carries the mecha language. Background: dark deep space battlefield with a faint purple lane, moderately darkened. Balanced contrast, armour frame plus dark glass window material logic."
+    },
+    {
+      "id": "ui-c-milspec",
+      "out": "UiStyleTests/ui-c-milspec.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "prompt": "Mobile portrait game HUD mockup for a sci-fi tower defense, restrained military-specification look. Layout: three stacked horizontal info plates in the top-left corner, three circular buttons stacked vertically along the left edge, one wide rounded action card in the bottom-left, a horizontal health bar in the bottom center, one large circular button in the bottom right. Panels are matte ivory-white flat plates with hairline gold borders, very shallow chamfered corners, a single thin cyan indicator line per panel, small etched panel seam lines and tiny bracket marks instead of glow. Almost no glow, only the thin cyan indicators emit light. Everything sits flat on the surface with crisp one-pixel black ink outlines. Background: dark deep space battlefield with a faint purple lane, darkened. Calm, orderly, low-noise, reads well at small sizes."
+    },
+    {
+      "id": "ui-d-heavy-armor",
+      "out": "UiStyleTests/ui-d-heavy-armor.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "prompt": "Mobile portrait game HUD mockup for a sci-fi tower defense, HEAVY armour plating with very deep dark recesses and exaggerated thick ink outlines. Layout: three stacked horizontal chunky info plates in the top-left corner, three circular buttons stacked vertically along the left edge, one wide rounded action card in the bottom-left, a horizontal health bar in the bottom center, one large circular button in the bottom right. Panels are brutal thick white armour blocks with cut 45-degree corners, wide dark charcoal inset cavities, bold gold banding, bright cyan energy slots glowing deep inside the cavities, exposed mechanical hinge and latch details between plates, very thick black contour lines around every shape. Bold graphic poster-like weight, strongest cel-shading of all versions. Background: dark deep space battlefield with a faint purple lane, strongly darkened. Punchy and heavy."
+    },
+    {
+      "id": "ui-e-command-gold",
+      "out": "UiStyleTests/ui-e-command-gold.png",
+      "size": "9:16",
+      "resolution": "2k",
+      "prompt": "Mobile portrait game HUD mockup for a sci-fi tower defense, elite commander grade interface. Layout: three stacked horizontal info plates in the top-left corner, three circular buttons stacked vertically along the left edge, one wide rounded action card in the bottom-left, a horizontal health bar in the bottom center, one large circular button in the bottom right. Panels are white armour plates lavishly trimmed with broad polished gold bevels, gold corner brackets and gold engraved filigree ribs, dark charcoal under-plates visible in the gaps, thin cyan energy filaments outlining the gold trim, small gold hexagon emblem on the main plate. More ceremonial and ornate than the standard units while sharing the same white armour and gold trim material. Background: dark deep space battlefield with a faint purple lane, darkened. Rich, premium, high-rank feel."
+    }
+  ]
+}
