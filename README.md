@@ -2,7 +2,7 @@
 
 竖屏（逻辑 1080×1920，窗口 540×960 等比缩放）单屏星域塔防。开局编队，局内消耗金币**随机召唤**编队里的防御塔，**同级拖拽合成**升阶，用**抽 3 选 1 的编队词条**滚雪球，同时操作一名可自由移动的英雄补火力。每关固定 10 波：第 5 波精英，第 10 波 BOSS。
 
-**Unity 6000.6.4f1**（C# + URP 兼容管线 + Legacy 动画）。
+**Unity 6000.6.4f1**（C# + 内置渲染管线 + 自定义赛璐璐着色器 + Legacy 动画）。
 
 ## 运行
 
@@ -109,7 +109,8 @@ python .cursor/skills/apimart-image/scripts/apimart_image.py `
 ## 视觉风格
 
 **深空赛璐璐**：日本动画赛璐璐上色 + 星际舰队仪表盘。厚黑描边、平涂双色、
-硬边 45° 高光、切角面板。完整规范见 [`Docs/ART-STYLE.md`](Docs/ART-STYLE.md)。
+硬边 45° 高光、切角面板。完整规范见枢纽文档
+`E:\Unity Development\Project\Star Defanse\docs\art-style.md`（设计与数值文档一律不放在本工程内）。
 
 - UI 素材由 APIMart 生成，清单在 `tools/ui-redesign.json`
 - 战场地图是**星球表面**（月面 / 冰原高地 / 晶簇盆地 / 火星红壤）

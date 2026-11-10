@@ -45,3 +45,15 @@ desktop.ini
 /tools/_terrain/
 /tools/apimart-assets.json
 
+
+# Local archive: superseded art/UI experiments + old logs (kept on disk, not tracked)
+/tools/_archive/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Style/tower comparison outputs (regenerated from tools/*.json, not tracked)
+/TowerDesigns/
+/UiStyleTests/
+/UiC6/

@@ -22,7 +22,7 @@ OUT = os.path.join(ROOT, "Assets", "Resources", "Art", "UI", "plate-thin.png")
 
 W, H = 512, 160
 
-# 调色板（与 Docs/ART-STYLE.md 一致）
+# 调色板（与枢纽文档 docs/art-style.md 一致）
 INK = (7, 4, 15, 255)          # 厚黑描边
 BODY = (20, 16, 51, 255)       # 深紫底色
 BODY_HI = (28, 23, 66, 255)    # 上半略亮（赛璐璐平涂分界）
